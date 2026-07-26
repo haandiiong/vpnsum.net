@@ -77,7 +77,6 @@ XSUS 官网入口：
 
 - [机场推荐总榜](/posts/jichang-tuijian/)
 - [机场介绍目录](/airports/)
-- [便宜机场推荐](/posts/cheap-jichang-recommend/)
 - [科学上网教程分类](/guides/)
 
 ## 常见问题

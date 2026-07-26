@@ -88,5 +88,4 @@ description: Clash节点推荐与机场订阅选择指南，说明 Clash、Shado
 ## 延伸阅读
 
 - [机场推荐：2026稳定机场选择指南与全球云实测](/posts/jichang-tuijian/)
-- [便宜机场推荐：低价套餐怎么选才不容易踩坑](/posts/cheap-jichang-recommend/)
 - [机场避坑指南：稳定性、跑路风险与购买前检查清单](/posts/jichang-avoid-pitfalls/)

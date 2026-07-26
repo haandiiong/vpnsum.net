@@ -42,7 +42,6 @@ tags:
 
 - [科学上网教程分类](/guides/)
 - [Clash节点推荐与订阅选择指南](/posts/clash-node-recommend/)
-- [便宜机场推荐：低价套餐怎么选才不容易踩坑](/posts/cheap-jichang-recommend/)
 - [机场避坑指南：稳定性、跑路风险与购买前检查清单](/posts/jichang-avoid-pitfalls/)
 
 ## 常见问题

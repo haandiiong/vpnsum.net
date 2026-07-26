@@ -33,7 +33,6 @@ tags:
 - [cocoduck机场介绍：小众备用、试用套餐与流媒体测试建议](/airports/cocoduck/)
 - [科学上网教程分类：机场、Clash、客户端与风险检查](/guides/)
 - [Clash节点推荐与订阅选择指南（2026）](/posts/clash-node-recommend/)
-- [便宜机场推荐：低价套餐怎么选才不容易踩坑（2026）](/posts/cheap-jichang-recommend/)
 - [机场避坑指南：稳定性、跑路风险与购买前检查清单（2026）](/posts/jichang-avoid-pitfalls/)
 
 ## AI 工具

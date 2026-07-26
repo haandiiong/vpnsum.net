@@ -26,7 +26,6 @@ tags:
 | 测试与披露 | 理解测试口径、推广链接和更新规则 | [机场测评方法与商业披露](/posts/jichang-test-disclosure/) |
 | 单项介绍 | 查看某个机场的套餐、客户端和风险提示 | [机场介绍目录](/airports/) |
 | Clash 与订阅 | 理解通用订阅、规则、节点和客户端选择 | [Clash节点推荐与订阅选择指南](/posts/clash-node-recommend/) |
-| 低价与备用 | 判断便宜机场、按量套餐和备用线路是否适合 | [便宜机场推荐](/posts/cheap-jichang-recommend/) |
 | 风险检查 | 识别跑路风险、官网异常、售后失联和长期套餐风险 | [机场避坑指南](/posts/jichang-avoid-pitfalls/) |
 | AI 与流媒体测试 | 测试 ChatGPT、YouTube、Netflix 等常用场景 | [机场推荐总榜](/posts/jichang-tuijian/) |
 
