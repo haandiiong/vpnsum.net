@@ -296,11 +296,34 @@ const displayDate = (value?: string | Date) => {
 		outline-offset: 3px;
 	}
 
-	.article-content :global(code) {
+	.article-content :global(:not(pre) > code) {
 		padding: 0.18em 0.42em;
 		border-radius: 5px;
 		background: #edf2f7;
+		color: #102a4c;
 		font-size: 0.88em;
+	}
+
+	.article-content :global(pre) {
+		margin: 24px 0;
+		padding: 20px 22px;
+		border: 1px solid #263b55;
+		border-radius: 12px;
+		background: #0b1728 !important;
+		box-shadow: 0 12px 30px rgba(7, 21, 43, 0.14);
+		color: #f1f5f9 !important;
+		overflow-x: auto;
+	}
+
+	.article-content :global(pre code) {
+		display: block;
+		min-width: max-content;
+		padding: 0;
+		border-radius: 0;
+		background: transparent;
+		color: inherit;
+		font-size: 14px;
+		line-height: 1.75;
 	}
 
 	.article-content :global(img) {
