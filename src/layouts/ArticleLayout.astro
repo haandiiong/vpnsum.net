@@ -256,7 +256,7 @@ const displayDate = (value?: string | Date) => {
 		color: #fff;
 	}
 
-	.article-content :global(a[href*="code="]) {
+	.article-content :global(.official-link) {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
@@ -278,12 +278,12 @@ const displayDate = (value?: string | Date) => {
 			transform 0.2s ease;
 	}
 
-	.article-content :global(a[href*="code="]::after) {
+	.article-content :global(.official-link::after) {
 		content: '↗';
 		font-size: 12px;
 	}
 
-	.article-content :global(a[href*="code="]:hover) {
+	.article-content :global(.official-link:hover) {
 		border-color: #0b4ed4;
 		background: #0b4ed4;
 		box-shadow: 0 10px 24px rgba(21, 94, 239, 0.26);
@@ -291,7 +291,7 @@ const displayDate = (value?: string | Date) => {
 		transform: translateY(-1px);
 	}
 
-	.article-content :global(a[href*="code="]:focus-visible) {
+	.article-content :global(.official-link:focus-visible) {
 		outline: 3px solid rgba(70, 217, 197, 0.7);
 		outline-offset: 3px;
 	}
