@@ -1,6 +1,6 @@
 /**
  * Production entry point for the static Astro build on Cloudflare.
- * Astro emits the site into dist/ and the ASSETS binding serves those files.
+ * The build adapter places Astro's static output in dist/client/ for ASSETS.
  */
 export default {
 	async fetch(request, env) {
