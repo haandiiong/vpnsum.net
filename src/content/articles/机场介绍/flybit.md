@@ -24,7 +24,7 @@ Flybit 更适合熟悉 Clash Verge、Clash Meta、Shadowrocket、Stash 等代理
 
 Flybit 官网入口：
 
-<a href="https://goflybit.com/#/register?code=p3DOcgzt" rel="sponsored nofollow noopener">https://goflybit.com</a>
+<a href="https://goflybit.com/#/register?code=p3DOcgzt">官网入口</a>
 
 如果入口触发验证、跳转异常或浏览器无法打开，建议先暂停购买，并通过公告、客服或已保存的备用入口确认可用性后再测试。
 

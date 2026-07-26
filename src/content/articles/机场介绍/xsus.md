@@ -24,7 +24,7 @@ XSUS 更适合预算敏感、需要较大月流量、想准备备用线路或轻
 
 XSUS 官网入口：
 
-<a href="https://xsus.cloud/register?code=6hl2OXGR" rel="sponsored nofollow noopener">https://xsus.cloud</a>
+<a href="https://xsus.cloud/register?code=6hl2OXGR">官网入口</a>
 
 ## XSUS基础信息
 

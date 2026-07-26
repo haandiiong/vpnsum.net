@@ -24,7 +24,7 @@ cocoduck 更适合作为小众备用机场、短期体验或流媒体测试候�
 
 cocoduck 官网入口：
 
-<a href="https://cocoduck.live/auth/register?code=ca0cfb89fa" rel="sponsored nofollow noopener">https://cocoduck.live</a>
+<a href="https://cocoduck.live/auth/register?code=ca0cfb89fa">官网入口</a>
 
 ## cocoduck基础信息
 

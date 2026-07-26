@@ -24,7 +24,7 @@ xxyun 更适合预算敏感、想测试流媒体、需要低价备用线路或�
 
 xxyun 官网入口：
 
-<a href="https://xxyun.at/?code=3AYVsSKY" rel="sponsored nofollow noopener">https://xxyun.at</a>
+<a href="https://xxyun.at/?code=3AYVsSKY">官网入口</a>
 
 优惠码：`xxyun`
 

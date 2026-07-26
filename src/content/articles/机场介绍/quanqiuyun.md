@@ -24,7 +24,7 @@ tags:
 
 全球云官网入口：
 
-<a href="https://haandiiong.gcvipaff.cc/#/?code=Hg3FRQIf" rel="sponsored nofollow noopener">https://haandiiong.gcvipaff.cc</a>
+<a href="https://haandiiong.gcvipaff.cc/#/?code=Hg3FRQIf">官网入口</a>
 
 ## 全球云基础信息
 

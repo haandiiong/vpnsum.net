@@ -24,7 +24,7 @@ tags:
 
 边缘节点注册链接：
 
-<a href="https://haandiiong.edgenovaaff.cc/#/register?code=TgZ97dFt" rel="sponsored nofollow noopener">https://haandiiong.edgenovaaff.cc</a>
+<a href="https://haandiiong.edgenovaaff.cc/#/register?code=TgZ97dFt">官网入口</a>
 
 优惠码：`XK808`
 
