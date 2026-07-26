@@ -18,6 +18,13 @@ const latestArticles = articleEntries.slice(0, 6);
 
 const categories = [
 	{
+		kicker: 'RECOMMENDATION',
+		title: '机场推荐',
+		description: '从稳定性、价格、客户端和使用场景出发，查看 6 家机场候选与测试建议。',
+		href: '/posts/jichang-tuijian/',
+		count: '6 家候选',
+	},
+	{
 		kicker: 'GUIDES',
 		title: '网络使用指南',
 		description: '从订阅选择到晚高峰测试，为新手提供可执行的检查步骤。',
@@ -78,7 +85,7 @@ const categoryLabel = (permalink: string) => {
 				<div class="signal-stats">
 					<div><strong>{allArticles.length}</strong><span>篇内容</span></div>
 					<div><strong>6</strong><span>机场候选</span></div>
-					<div><strong>3</strong><span>核心栏目</span></div>
+					<div><strong>4</strong><span>核心栏目</span></div>
 				</div>
 			</div>
 		</section>
@@ -96,7 +103,7 @@ const categoryLabel = (permalink: string) => {
 					<span class="section-number">01</span>
 					<p>从你的问题开始</p>
 				</div>
-				<h2>三个入口，<br />找到需要的信息。</h2>
+				<h2>四个入口，<br />找到需要的信息。</h2>
 			</div>
 			<div class="category-grid">
 				{categories.map((category) => (
