@@ -21,10 +21,10 @@ tags:
 
 这个分类主要解决机场推荐、单机场介绍、Clash 订阅、专属客户端、ChatGPT 网络访问、便宜机场、备用线路和晚高峰稳定性问题。阅读时建议重点看更新时间、测试环境、商业披露和短周期测试建议。
 
-- [机场推荐：2026稳定机场选择指南与6家机场实测](/posts/jichang-tuijian/)
+- [机场推荐：2026稳定机场选择指南与10家候选核对](/posts/jichang-tuijian/)
 - [机场风险监测：跑路预警、官网异常、套餐变化与续费前检查](/risk-monitor/)
 - [机场测评方法与商业披露：测试说明、推广链接和更新规则](/posts/jichang-test-disclosure/)
-- [机场介绍目录：6家机场单独测评与选择建议](/airports/)
+- [机场介绍目录：10家机场资料核对与选择建议](/airports/)
 - [全球云机场介绍：新手入门、专属客户端与使用建议](/airports/quanqiuyun/)
 - [边缘节点 EdgeNode机场介绍：流媒体、AI工具与IEPL测试建议](/airports/edgenode/)
 - [xxyun机场介绍：低价备用、流媒体测试与套餐建议](/airports/xxyun/)

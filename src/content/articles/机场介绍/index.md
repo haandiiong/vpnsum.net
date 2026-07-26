@@ -1,9 +1,9 @@
 ---
-title: 机场介绍目录：6家机场单独测评与选择建议
-description: 机场介绍目录按全球云、边缘节点 EdgeNode、xxyun、XSUS、Flybit、cocoduck 6家机场建立单独页面，整理适合人群、套餐信息、客户端支持、通用订阅、晚高峰测试重点、ChatGPT 与 YouTube 使用建议、购买风险和延伸阅读。
+title: 机场介绍目录：10家机场资料核对与选择建议
+description: 机场介绍目录按 Flybit、xxyun、网际快车、全球云、XSUS、cocoduck、边缘节点、阿达西、唯兔云、U1S1 的顺序整理10家独立页面，并区分实测、页面截图和待核对资料。
 permalink: /airports/
 createTime: 2026/06/24
-updateTime: 2026/06/24
+updateTime: 2026/07/26
 tags:
   - 机场介绍
   - 机场测评
@@ -11,7 +11,7 @@ tags:
   - 科学上网
 ---
 
-更新时间：2026年6月24日  
+更新时间：2026年7月26日<br />
 页面定位：机场介绍与单项详情入口  
 阅读建议：先看总榜，再进入单机场页面核对套餐、客户端、通用订阅和风险提示。
 
@@ -21,12 +21,16 @@ tags:
 
 | 机场 | 推荐定位 | 适合人群 | 详情页 |
 |---|---|---|---|
-| 全球云 | 新手入门、轻中度使用 | 第一次买机场、不想配置 Clash 的用户 | [全球云机场介绍](/airports/quanqiuyun/) |
-| 边缘节点 EdgeNode | 流媒体、AI、跨境办公 | 关注 IEPL、流媒体和 AI 工具兼容的人 | [边缘节点机场介绍](/airports/edgenode/) |
-| xxyun | 流媒体、低价备用 | 预算敏感、主要看 YouTube 和流媒体的人 | [xxyun机场介绍](/airports/xxyun/) |
-| XSUS | 大流量低价、备用线路 | 想用较低成本换较大月流量的人 | [XSUS机场介绍](/airports/xsus/) |
 | Flybit | Clash、Shadowrocket、多端订阅 | 熟悉通用订阅和代理客户端的人 | [Flybit机场介绍](/airports/flybit/) |
+| xxyun | 流媒体、低价备用 | 预算敏感、主要看 YouTube 和流媒体的人 | [xxyun机场介绍](/airports/xxyun/) |
+| 网际快车 | 不限时流量、低频使用 | 不想按月续费、能够自行测试客户端的人 | [网际快车机场介绍](/airports/wangji-kuaiche/) |
+| 全球云 | 新手入门、轻中度使用 | 第一次买机场、不想配置 Clash 的用户 | [全球云机场介绍](/airports/quanqiuyun/) |
+| XSUS | 大流量低价、备用线路 | 想用较低成本换较大月流量的人 | [XSUS机场介绍](/airports/xsus/) |
 | cocoduck | 小众备用、短期体验 | 想准备备用机场或先试用的人 | [cocoduck机场介绍](/airports/cocoduck/) |
+| 边缘节点 EdgeNode | 流媒体、AI、跨境办公 | 关注 IEPL、流媒体和 AI 工具兼容的人 | [边缘节点机场介绍](/airports/edgenode/) |
+| 阿达西 | 低预算、小流量测试 | 想用3元入门档先核对服务的人 | [阿达西机场介绍](/airports/adaxi/) |
+| 唯兔云 | 观察候选 | 愿意自行核对套餐、客户端和性能的人 | [唯兔云机场介绍](/airports/weituyun/) |
+| U1S1 | 归属受限测速样本 | 能理解现有截图证据边界的人 | [U1S1机场介绍](/airports/u1s1/) |
 
 ## 先看哪些维度
 
