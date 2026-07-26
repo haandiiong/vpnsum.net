@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="页面没有找到"
+	description="你访问的页面不存在、已经移动或链接地址有误。"
+	noindex={true}
+>
+	<main class="not-found">
+		<p class="error-code">404</p>
+		<h1>这个页面没有找到</h1>
+		<p>它可能已经移动、改名，或者链接地址有误。你可以返回首页，也可以从文章目录继续查找。</p>
+		<div>
+			<a class="primary" href="/">返回首页</a>
+			<a href="/posts/">浏览全部文章</a>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.not-found {
+		display: grid;
+		place-content: center;
+		min-height: calc(100vh - 250px);
+		padding: 80px 22px;
+		background:
+			radial-gradient(circle at 70% 20%, rgba(70, 217, 197, 0.14), transparent 30%),
+			#07152b;
+		color: white;
+		text-align: center;
+	}
+
+	.error-code {
+		margin: 0;
+		color: #46d9c5;
+		font-size: 14px;
+		font-weight: 900;
+		letter-spacing: 0.3em;
+	}
+
+	h1 {
+		margin: 16px 0;
+		font-size: clamp(42px, 8vw, 78px);
+		letter-spacing: -0.05em;
+	}
+
+	.not-found > p:not(.error-code) {
+		max-width: 620px;
+		margin: 0 auto;
+		color: rgba(255, 255, 255, 0.66);
+		font-size: 16px;
+		line-height: 1.8;
+	}
+
+	.not-found div {
+		display: flex;
+		justify-content: center;
+		gap: 24px;
+		margin-top: 32px;
+	}
+
+	.not-found a {
+		padding: 13px 18px;
+		color: rgba(255, 255, 255, 0.82);
+		font-weight: 800;
+		text-underline-offset: 4px;
+	}
+
+	.not-found .primary {
+		border-radius: 10px;
+		background: #46d9c5;
+		color: #07152b;
+		text-decoration: none;
+	}
+</style>

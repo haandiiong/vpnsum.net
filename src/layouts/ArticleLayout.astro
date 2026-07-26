@@ -8,40 +8,133 @@ interface Props {
 	updateTime?: string | Date;
 	tags?: string[];
 	noindex?: boolean;
+	cover?: string;
+	relatedArticles?: {
+		title: string;
+		description?: string;
+		permalink: string;
+	}[];
 }
 
-const { title, description, createTime, updateTime, tags = [], noindex = false } = Astro.props;
+const {
+	title,
+	description,
+	createTime,
+	updateTime,
+	tags = [],
+	noindex = false,
+	cover = '/site-og.jpg',
+	relatedArticles = [],
+} = Astro.props;
 
 const displayDate = (value?: string | Date) => {
 	if (!value) return '';
 	const normalized = value instanceof Date ? value.toISOString().slice(0, 10) : String(value).slice(0, 10);
 	return normalized.replaceAll('/', '.').replaceAll('-', '.');
 };
+
+const isoDate = (value?: string | Date) => {
+	if (!value) return undefined;
+	const normalized = value instanceof Date ? value : new Date(String(value).replaceAll('/', '-'));
+	return Number.isNaN(normalized.getTime()) ? undefined : normalized.toISOString();
+};
+
+const siteUrl = 'https://vpnsum.net';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const publishedTime = isoDate(createTime);
+const modifiedTime = isoDate(updateTime) ?? publishedTime;
+const articleJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	'@id': `${canonicalUrl}#article`,
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': canonicalUrl,
+	},
+	headline: title,
+	description,
+	image: [new URL(cover, siteUrl).toString()],
+	...(publishedTime ? { datePublished: publishedTime } : {}),
+	...(modifiedTime ? { dateModified: modifiedTime } : {}),
+	inLanguage: 'zh-CN',
+	keywords: tags.join(', '),
+	author: {
+		'@type': 'Organization',
+		name: 'vpnsum.net 编辑团队',
+		url: `${siteUrl}/about/`,
+	},
+	publisher: { '@id': `${siteUrl}/#organization` },
+	isPartOf: { '@id': `${siteUrl}/#website` },
+};
+const breadcrumbJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: '首页', item: `${siteUrl}/` },
+		{ '@type': 'ListItem', position: 2, name: '文章目录', item: `${siteUrl}/posts/` },
+		{ '@type': 'ListItem', position: 3, name: title, item: canonicalUrl },
+	],
+};
 ---
 
-<BaseLayout title={title} description={description} noindex={noindex}>
-	<main>
-		<header class="article-hero">
-			<div class="article-hero-inner">
-				<a class="back-link" href="/posts/">← 返回文章目录</a>
-				<h1>{title}</h1>
-				{description && <p class="article-description">{description}</p>}
-				<div class="article-meta">
-					{updateTime && <span>更新于 {displayDate(updateTime)}</span>}
-					{!updateTime && createTime && <span>发布于 {displayDate(createTime)}</span>}
-					{tags.slice(0, 4).map((tag) => <span class="tag">#{tag}</span>)}
-				</div>
+<BaseLayout
+	title={title}
+	description={description}
+	noindex={noindex}
+	type="article"
+	image={cover}
+	publishedTime={publishedTime}
+	modifiedTime={modifiedTime}
+	tags={tags}
+	jsonLd={[articleJsonLd, breadcrumbJsonLd]}
+>
+		<main>
+			<header class="article-hero">
+				<div class="article-hero-inner">
+					<nav class="breadcrumbs" aria-label="面包屑">
+						<a href="/">首页</a>
+						<span aria-hidden="true">/</span>
+						<a href="/posts/">文章目录</a>
+						<span aria-hidden="true">/</span>
+						<span aria-current="page">{title}</span>
+					</nav>
+					<h1>{title}</h1>
+					{description && <p class="article-description">{description}</p>}
+					<div class="article-meta">
+						<span>作者：<a href="/about/">vpnsum.net 编辑团队</a></span>
+						{createTime && <span>发布于 {displayDate(createTime)}</span>}
+						{updateTime && <span>更新于 {displayDate(updateTime)}</span>}
+						{tags.slice(0, 4).map((tag) => <span class="tag">#{tag}</span>)}
+					</div>
 			</div>
 		</header>
-			<div class="article-shell">
-				<article class="article-content">
-					<slot />
-				</article>
-			<aside class="article-aside">
-				<p class="aside-label">阅读提示</p>
-				<p>服务价格、功能和可用性会持续变化。购买或订阅前，请查看官方信息并先做短周期测试。</p>
-				<a href="/risk-monitor/">查看风险监测 →</a>
-				</aside>
+				<div class="article-shell">
+					<div class="article-main">
+						<article class="article-content">
+							<slot />
+						</article>
+						{relatedArticles.length > 0 && (
+							<section class="related-section" aria-labelledby="related-heading">
+								<p class="related-kicker">继续阅读</p>
+								<h2 id="related-heading">与你当前主题相关</h2>
+								<div class="related-grid">
+									{relatedArticles.map((article) => (
+										<a href={article.permalink}>
+											<strong>{article.title}</strong>
+											{article.description && <span>{article.description}</span>}
+											<em>查看文章 →</em>
+										</a>
+									))}
+								</div>
+							</section>
+						)}
+					</div>
+				<aside class="article-aside">
+					<p class="aside-label">阅读提示</p>
+					<p>服务价格、功能和可用性会持续变化。购买或订阅前，请查看官方信息并先做短周期测试。</p>
+					<a href="/risk-monitor/">查看风险监测 →</a>
+					<a href="/posts/jichang-test-disclosure/">了解评测方法 →</a>
+					</aside>
 			</div>
 		</main>
 		<dialog class="image-lightbox" aria-label="图片大图预览">
@@ -65,14 +158,27 @@ const displayDate = (value?: string | Date) => {
 		margin: 0 auto;
 	}
 
-	.back-link {
-		display: inline-block;
-		margin-bottom: 26px;
-		color: #74e7d5;
-		font-size: 13px;
-		font-weight: 700;
-		text-decoration: none;
-	}
+		.breadcrumbs {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			margin-bottom: 26px;
+			color: rgba(255, 255, 255, 0.48);
+			font-size: 13px;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		.breadcrumbs a {
+			color: #74e7d5;
+			font-weight: 700;
+			text-decoration: none;
+		}
+
+		.breadcrumbs span:last-child {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 
 	h1 {
 		max-width: 900px;
@@ -90,15 +196,20 @@ const displayDate = (value?: string | Date) => {
 		line-height: 1.8;
 	}
 
-	.article-meta {
+		.article-meta {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
 		gap: 10px;
 		margin-top: 28px;
 		color: rgba(255, 255, 255, 0.5);
-		font-size: 12px;
-	}
+			font-size: 12px;
+		}
+
+		.article-meta a {
+			color: rgba(255, 255, 255, 0.8);
+			text-underline-offset: 3px;
+		}
 
 	.tag {
 		padding: 5px 9px;
@@ -117,9 +228,10 @@ const displayDate = (value?: string | Date) => {
 		background: #fff;
 	}
 
-	.article-content {
-		min-width: 0;
-	}
+		.article-main,
+		.article-content {
+			min-width: 0;
+		}
 
 	.article-content :global(h2) {
 		margin: 2.2em 0 0.8em;
@@ -447,23 +559,103 @@ const displayDate = (value?: string | Date) => {
 		line-height: 1.7;
 	}
 
-	.article-aside a {
-		color: #155eef;
-		font-size: 13px;
-		font-weight: 700;
-		text-decoration: none;
-	}
+		.article-aside a {
+			display: block;
+			margin-top: 10px;
+			color: #155eef;
+			font-size: 13px;
+			font-weight: 700;
+			text-decoration: none;
+		}
+
+		.related-section {
+			margin-top: 64px;
+			padding-top: 36px;
+			border-top: 1px solid #dce4ee;
+		}
+
+		.related-kicker {
+			margin: 0 0 8px;
+			color: #155eef;
+			font-size: 12px;
+			font-weight: 800;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+		}
+
+		.related-section h2 {
+			margin: 0 0 22px;
+			color: #07152b;
+			font-size: clamp(25px, 3vw, 32px);
+		}
+
+		.related-grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 14px;
+		}
+
+		.related-grid a {
+			display: flex;
+			flex-direction: column;
+			min-height: 190px;
+			padding: 20px;
+			border: 1px solid #dce4ee;
+			border-radius: 14px;
+			background: #f7f9fc;
+			color: #07152b;
+			text-decoration: none;
+			transition: border-color 0.2s ease, transform 0.2s ease;
+		}
+
+		.related-grid a:hover {
+			border-color: #9eb4ce;
+			transform: translateY(-2px);
+		}
+
+		.related-grid strong {
+			font-size: 16px;
+			line-height: 1.5;
+		}
+
+		.related-grid span {
+			display: -webkit-box;
+			margin-top: 10px;
+			color: #667085;
+			font-size: 13px;
+			line-height: 1.65;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 3;
+			overflow: hidden;
+		}
+
+		.related-grid em {
+			margin-top: auto;
+			padding-top: 16px;
+			color: #155eef;
+			font-size: 12px;
+			font-style: normal;
+			font-weight: 800;
+		}
 
 	@media (max-width: 900px) {
 		.article-shell {
 			grid-template-columns: minmax(0, 760px);
 		}
 
-		.article-aside {
-			position: static;
-			order: -1;
+			.article-aside {
+				position: static;
+				order: -1;
+			}
+
+			.related-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.related-grid a {
+				min-height: 0;
+			}
 		}
-	}
 
 	@media (max-width: 640px) {
 		.article-content :global(table) {

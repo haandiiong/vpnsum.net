@@ -3,7 +3,7 @@ title: 关于 vpnsum.net
 description: 关于 vpnsum.net 的站点定位、内容原则、商业披露、更新核验方式和反馈渠道，说明本站如何围绕网络加速、AI 工具、全球信息获取和开源技术资源提供场景化建议、教程、资料来源说明与风险提示，帮助读者理解推荐内容的适用范围、判断边界和联系渠道。
 permalink: /about/
 createTime: 2026/06/04
-updateTime: 2026/06/10
+updateTime: 2026/07/26
 tags:
   - 关于本站
   - vpnsum
@@ -39,11 +39,14 @@ vpnsum.net 是一个面向中文读者的工具与信息获取指南站，主要
 
 ## 联系方式
 
-如需反馈内容错误、链接失效或更新建议，可通过站点导航中的 GitHub 或 Telegram 入口联系作者。
+如需反馈事实错误、链接失效、套餐变化或更新建议，请先查看[更正与反馈政策](/corrections/)。本站将在公开联系方式完成配置后，在该页面统一公布提交入口；在此之前不会使用未经确认的个人联系方式。
 
 ## 相关页面
 
 - [免责声明](/disclaimer/)
+- [编辑政策](/editorial-policy/)
+- [更正与反馈政策](/corrections/)
+- [机场测评方法与商业披露](/posts/jichang-test-disclosure/)
 - [机场推荐：2026稳定机场选择指南与全球云实测](/posts/jichang-tuijian/)
 - [Clash节点推荐与订阅选择指南](/posts/clash-node-recommend/)
 - [机场避坑指南：稳定性、跑路风险与购买前检查清单](/posts/jichang-avoid-pitfalls/)

@@ -22,6 +22,16 @@ export default {
 			return response;
 		}
 
-		return env.ASSETS.fetch(new Request(url, request));
-	},
-};
+			const fallbackResponse = await env.ASSETS.fetch(new Request(url, request));
+			if (fallbackResponse.status !== 404) return fallbackResponse;
+
+			const notFoundUrl = new URL('/404.html', requestUrl);
+			const notFoundPage = await env.ASSETS.fetch(new Request(notFoundUrl, request));
+			if (notFoundPage.status === 404) return response;
+
+			return new Response(notFoundPage.body, {
+				status: 404,
+				headers: notFoundPage.headers,
+			});
+		},
+	};
