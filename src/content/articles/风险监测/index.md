@@ -63,9 +63,9 @@ tags:
 - 频繁更换域名、入口或支付方式。
 - 社群中出现大量相似投诉，但官方没有解释。
 
-## 和榜单页面怎么配合看
+## 和推荐内容怎么配合看
 
-风险监测页用于购买前最后确认，不用于替代榜单页。你可以先看 [全量机场榜单](/rankings/all/)，再按需求进入 [稳定机场推荐](/rankings/stable/)、[便宜机场推荐](/rankings/cheap/) 或 [Clash机场推荐](/rankings/clash/)，最后回到本页做续费前检查。
+风险监测页用于购买前最后确认，不用于替代推荐指南。你可以先看 [机场推荐主页面](/posts/jichang-tuijian/)，再进入 [机场介绍目录](/airports/) 查看单项说明，最后回到本页做续费前检查。
 
 ## 常见问题
 
@@ -87,7 +87,6 @@ tags:
 
 ## 延伸阅读
 
-- [全量机场榜单](/rankings/all/)
 - [机场避坑指南：稳定性、跑路风险与购买前检查清单](/posts/jichang-avoid-pitfalls/)
 - [机场测评方法与商业披露](/posts/jichang-test-disclosure/)
 - [机场推荐主页面](/posts/jichang-tuijian/)

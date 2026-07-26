@@ -21,12 +21,8 @@ tags:
 
 | 分类 | 解决什么问题 | 推荐阅读 |
 |---|---|---|
-| 全量榜单 | 横向比较价格、流量、客户端和复核状态 | [全量机场榜单](/rankings/all/) |
-| 稳定机场 | 按晚高峰、主力使用和长期连接筛选 | [稳定机场推荐](/rankings/stable/) |
-| 低价备用 | 判断便宜机场和备用线路是否适合 | [便宜机场推荐](/rankings/cheap/) |
-| Clash 订阅 | 挑选支持通用订阅和多客户端的机场 | [Clash机场推荐](/rankings/clash/) |
 | 风险监测 | 续费前检查官网、订阅、套餐和异常状态 | [机场风险监测](/risk-monitor/) |
-| 机场主文 | 快速理解推荐逻辑、测试口径和时效提醒 | [机场推荐总榜](/posts/jichang-tuijian/) |
+| 机场推荐 | 快速理解推荐逻辑、测试口径和时效提醒 | [机场推荐指南](/posts/jichang-tuijian/) |
 | 测试与披露 | 理解测试口径、推广链接和更新规则 | [机场测评方法与商业披露](/posts/jichang-test-disclosure/) |
 | 单项介绍 | 查看某个机场的套餐、客户端和风险提示 | [机场介绍目录](/airports/) |
 | Clash 与订阅 | 理解通用订阅、规则、节点和客户端选择 | [Clash节点推荐与订阅选择指南](/posts/clash-node-recommend/) |
@@ -36,12 +32,10 @@ tags:
 
 ## 新手阅读路径
 
-1. 先读 [全量机场榜单](/rankings/all/)，横向比较价格、流量、客户端和通用订阅。
-2. 再按场景进入 [稳定机场推荐](/rankings/stable/)、[便宜机场推荐](/rankings/cheap/) 或 [Clash机场推荐](/rankings/clash/)。
-3. 继续读 [机场推荐总榜](/posts/jichang-tuijian/)，理解推荐逻辑、时效提醒和测试边界。
-4. 再看 [机场测评方法与商业披露](/posts/jichang-test-disclosure/)，理解页面复核、晚高峰实测和推广链接标注。
-5. 进入 [机场介绍目录](/airports/)，查看每个机场的单独说明。
-6. 下单前最后看 [机场风险监测](/risk-monitor/) 和 [机场避坑指南](/posts/jichang-avoid-pitfalls/)，确认短周期测试和备用方案。
+1. 先读 [机场推荐指南](/posts/jichang-tuijian/)，理解推荐逻辑、时效提醒和测试边界。
+2. 再看 [机场测评方法与商业披露](/posts/jichang-test-disclosure/)，理解页面复核、晚高峰实测和推广链接标注。
+3. 进入 [机场介绍目录](/airports/)，查看每个机场的单独说明。
+4. 下单前最后看 [机场风险监测](/risk-monitor/) 和 [机场避坑指南](/posts/jichang-avoid-pitfalls/)，确认短周期测试和备用方案。
 
 ## 测试流程
 
@@ -57,9 +51,7 @@ tags:
 ## 延伸阅读
 
 - [全球云机场介绍](/airports/quanqiuyun/)
-- [全量机场榜单](/rankings/all/)
-- [稳定机场推荐](/rankings/stable/)
-- [Clash机场推荐](/rankings/clash/)
+- [机场推荐指南](/posts/jichang-tuijian/)
 - [机场风险监测](/risk-monitor/)
 - [机场测评方法与商业披露](/posts/jichang-test-disclosure/)
 - [边缘节点 EdgeNode机场介绍](/airports/edgenode/)
