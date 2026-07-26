@@ -1,0 +1,242 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+	createTime?: string | Date;
+	updateTime?: string | Date;
+	tags?: string[];
+	noindex?: boolean;
+}
+
+const { title, description, createTime, updateTime, tags = [], noindex = false } = Astro.props;
+
+const displayDate = (value?: string | Date) => {
+	if (!value) return '';
+	const normalized = value instanceof Date ? value.toISOString().slice(0, 10) : String(value).slice(0, 10);
+	return normalized.replaceAll('/', '.').replaceAll('-', '.');
+};
+---
+
+<BaseLayout title={title} description={description} noindex={noindex}>
+	<main>
+		<header class="article-hero">
+			<div class="article-hero-inner">
+				<a class="back-link" href="/posts/">← 返回文章目录</a>
+				<h1>{title}</h1>
+				{description && <p class="article-description">{description}</p>}
+				<div class="article-meta">
+					{updateTime && <span>更新于 {displayDate(updateTime)}</span>}
+					{!updateTime && createTime && <span>发布于 {displayDate(createTime)}</span>}
+					{tags.slice(0, 4).map((tag) => <span class="tag">#{tag}</span>)}
+				</div>
+			</div>
+		</header>
+		<div class="article-shell">
+			<article class="article-content">
+				<slot />
+			</article>
+			<aside class="article-aside">
+				<p class="aside-label">阅读提示</p>
+				<p>服务价格、功能和可用性会持续变化。购买或订阅前，请查看官方信息并先做短周期测试。</p>
+				<a href="/risk-monitor/">查看风险监测 →</a>
+			</aside>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.article-hero {
+		padding: 72px clamp(22px, 7vw, 100px) 62px;
+		background:
+			radial-gradient(circle at 86% 20%, rgba(70, 217, 197, 0.18), transparent 26%),
+			#0a1d39;
+		color: white;
+	}
+
+	.article-hero-inner {
+		max-width: 980px;
+		margin: 0 auto;
+	}
+
+	.back-link {
+		display: inline-block;
+		margin-bottom: 26px;
+		color: #74e7d5;
+		font-size: 13px;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	h1 {
+		max-width: 900px;
+		margin: 0;
+		font-size: clamp(38px, 5.6vw, 70px);
+		line-height: 1.13;
+		letter-spacing: -0.045em;
+	}
+
+	.article-description {
+		max-width: 820px;
+		margin: 22px 0 0;
+		color: rgba(255, 255, 255, 0.68);
+		font-size: 17px;
+		line-height: 1.8;
+	}
+
+	.article-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 10px;
+		margin-top: 28px;
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 12px;
+	}
+
+	.tag {
+		padding: 5px 9px;
+		border: 1px solid rgba(255, 255, 255, 0.16);
+		border-radius: 999px;
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	.article-shell {
+		display: grid;
+		grid-template-columns: minmax(0, 760px) 230px;
+		justify-content: center;
+		align-items: start;
+		gap: 70px;
+		padding: 72px clamp(22px, 5vw, 72px) 110px;
+		background: #fff;
+	}
+
+	.article-content {
+		min-width: 0;
+	}
+
+	.article-content :global(h2) {
+		margin: 2.2em 0 0.8em;
+		padding-top: 0.5em;
+		font-size: clamp(25px, 3vw, 34px);
+		line-height: 1.28;
+		letter-spacing: -0.025em;
+		color: #07152b;
+		border-top: 1px solid #dce4ee;
+	}
+
+	.article-content :global(h3) {
+		margin: 1.9em 0 0.7em;
+		font-size: 22px;
+		line-height: 1.4;
+		color: #102a4c;
+	}
+
+	.article-content :global(p),
+	.article-content :global(li) {
+		font-size: 16px;
+		line-height: 1.9;
+		color: #344054;
+	}
+
+	.article-content :global(a) {
+		color: #155eef;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 3px;
+	}
+
+	.article-content :global(strong) {
+		color: #101828;
+	}
+
+	.article-content :global(blockquote) {
+		margin: 28px 0;
+		padding: 18px 22px;
+		border-left: 4px solid #46d9c5;
+		background: #effbf8;
+	}
+
+	.article-content :global(blockquote p) {
+		margin: 0;
+	}
+
+	.article-content :global(table) {
+		display: block;
+		width: 100%;
+		margin: 28px 0;
+		border-spacing: 0;
+		border: 1px solid #dce4ee;
+		border-radius: 10px;
+		overflow-x: auto;
+	}
+
+	.article-content :global(th),
+	.article-content :global(td) {
+		min-width: 130px;
+		padding: 13px 15px;
+		border-bottom: 1px solid #e7edf4;
+		text-align: left;
+		font-size: 14px;
+		line-height: 1.55;
+	}
+
+	.article-content :global(th) {
+		background: #f3f7fb;
+		color: #102a4c;
+		font-weight: 700;
+	}
+
+	.article-content :global(code) {
+		padding: 0.18em 0.42em;
+		border-radius: 5px;
+		background: #edf2f7;
+		font-size: 0.88em;
+	}
+
+	.article-content :global(img) {
+		margin: 26px auto;
+		border-radius: 12px;
+		border: 1px solid #dce4ee;
+	}
+
+	.article-aside {
+		position: sticky;
+		top: 110px;
+		padding: 22px;
+		border: 1px solid #dce4ee;
+		border-radius: 14px;
+		background: #f7f9fc;
+	}
+
+	.aside-label {
+		margin: 0 0 10px !important;
+		color: #07152b !important;
+		font-weight: 800;
+	}
+
+	.article-aside p {
+		margin: 0 0 16px;
+		color: #667085;
+		font-size: 13px;
+		line-height: 1.7;
+	}
+
+	.article-aside a {
+		color: #155eef;
+		font-size: 13px;
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	@media (max-width: 900px) {
+		.article-shell {
+			grid-template-columns: minmax(0, 760px);
+		}
+
+		.article-aside {
+			position: static;
+			order: -1;
+		}
+	}
+</style>

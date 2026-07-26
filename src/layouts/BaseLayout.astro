@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+	noindex?: boolean;
+}
+
+const {
+	title = 'vpnsum.net｜VPN、机场推荐与全球信息指南',
+	description = '提供 VPN、机场推荐、Clash 节点、AI 工具与全球信息获取指南。',
+	noindex = false,
+} = Astro.props;
+
+const pageTitle = title.includes('vpnsum.net') ? title : `${title}｜vpnsum.net`;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#07152b" />
+		{noindex && <meta name="robots" content="noindex, follow" />}
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={new URL(Astro.url.pathname, 'https://vpnsum.net')} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="vpnsum.net" />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="https://vpnsum.net/site-og.jpg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<header class="site-header">
+			<a class="site-brand" href="/" aria-label="vpnsum.net 首页">
+				<span aria-hidden="true">VS</span>
+				<span>vpnsum.net</span>
+			</a>
+			<nav class="site-nav" aria-label="主要导航">
+				<a href="/rankings/all/">机场榜单</a>
+				<a href="/guides/">使用指南</a>
+				<a href="/posts/">全部文章</a>
+				<a class="nav-primary" href="/risk-monitor/">风险监测</a>
+			</nav>
+		</header>
+		<slot />
+		<footer class="site-footer">
+			<div>
+				<p class="footer-brand">vpnsum.net</p>
+				<p>独立的信息筛选、工具评测与网络使用指南。<br />重要选择请结合官方信息与自己的实际测试。</p>
+			</div>
+			<div class="footer-links">
+				<a href="/about/">关于本站</a>
+				<a href="/disclaimer/">免责声明</a>
+				<a href="/posts/">文章目录</a>
+			</div>
+		</footer>
+	</body>
+</html>

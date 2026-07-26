@@ -1,0 +1,99 @@
+---
+title: Flybit机场介绍：Clash订阅、Shadowrocket与多端使用建议
+description: Flybit机场介绍页整理 Flybit 的推荐定位、15元月付、128GB月流量、1天2GB试用、不限时套餐、通用订阅、Clash 与 Shadowrocket 使用场景、晚高峰测试重点和购买风险。
+permalink: /airports/flybit/
+createTime: 2026/06/24
+updateTime: 2026/06/24
+tags:
+  - Flybit
+  - Flybit机场
+  - Clash机场
+  - Shadowrocket
+  - 机场介绍
+---
+
+更新时间：2026年6月24日  
+页面定位：Flybit 机场单独介绍  
+复核重点：通用订阅、Clash 兼容、多端使用、试用套餐和入口可用性。
+
+## Flybit适合谁
+
+Flybit 更适合熟悉 Clash Verge、Clash Meta、Shadowrocket、Stash 等代理客户端的用户。它的重点优势不是专属客户端一键省心，而是通用订阅和多端兼容，适合会管理节点、规则和策略组的人。
+
+如果你完全不想配置客户端，建议优先看带专属客户端的机场；如果你已经会导入订阅，Flybit 可以作为 Clash 用户的候选。
+
+Flybit 官网入口：
+
+<a href="https://goflybit.com/#/register?code=p3DOcgzt" rel="sponsored nofollow noopener">https://goflybit.com</a>
+
+如果入口触发验证、跳转异常或浏览器无法打开，建议先暂停购买，并通过公告、客服或已保存的备用入口确认可用性后再测试。
+
+优惠码：`flybit`
+
+## Flybit基础信息
+
+| 项目 | 内容 |
+|---|---|
+| 推荐定位 | Clash 通用订阅、多端订阅、备用流量 |
+| 最低套餐 | 15 元/月 |
+| 月流量 | 128GB |
+| 是否试用 | 1天2GB |
+| 是否不限时 | 是 |
+| 客户端类型 | 无专属客户端 |
+| 通用订阅 | 支持 |
+| 适合场景 | Clash Verge、Clash Meta、Shadowrocket、多端订阅 |
+| 测试口径 | 2026年6月 Clash 客户端观察 |
+| 购买建议 | 适合会导入订阅和管理规则的用户，新手需要一点配置成本 |
+
+## 选择Flybit前先看这些
+
+| 判断维度 | 建议 |
+|---|---|
+| Clash 兼容 | 测试订阅导入、节点显示、策略组和规则是否正常 |
+| iOS 使用 | Shadowrocket 或 Stash 导入订阅后检查节点可用性 |
+| 试用套餐 | 先用 1 天 2GB 观察常用场景 |
+| 入口状态 | 购买前确认官网入口、后台和公告是否稳定 |
+| 备用价值 | 通用订阅适合作为主力之外的备用方案 |
+
+## Flybit的优点
+
+- 支持通用订阅，适合 Clash、Shadowrocket、Stash 用户。
+- 有 1 天 2GB 试用，更适合先测再买。
+- 支持不限时套餐，备用场景更灵活。
+- 多端使用空间比纯专属客户端更大。
+
+## Flybit的限制
+
+- 没有专属客户端，新手需要理解订阅导入和节点选择。
+- 如果入口异常，应该先确认可用性再购买。
+- 通用订阅是否好用取决于客户端版本和协议兼容。
+- 规则配置错误也会造成“机场不好用”的错觉。
+
+## 测试建议
+
+1. 先领取或购买短周期套餐。
+2. 将订阅导入 Clash Verge、Clash Meta 或 Shadowrocket。
+3. 检查节点列表、延迟、策略组和订阅更新。
+4. 晚高峰测试 ChatGPT、YouTube 和常用网页。
+5. 保留可用节点和备用入口记录。
+
+## 相关页面
+
+- [Clash节点推荐与订阅选择指南](/posts/clash-node-recommend/)
+- [机场推荐总榜](/posts/jichang-tuijian/)
+- [机场介绍目录](/airports/)
+- [机场避坑指南](/posts/jichang-avoid-pitfalls/)
+
+## 常见问题
+
+### Flybit适合新手吗？
+
+如果完全不懂 Clash，Flybit 有一定配置门槛。会导入订阅、切换节点和管理规则的人更适合测试。
+
+### Flybit适合 iPhone 用户吗？
+
+可以测试。iPhone 用户通常会用 Shadowrocket 或 Stash，重点看订阅导入和节点可用性。
+
+### Flybit为什么适合备用？
+
+它支持通用订阅和不限时套餐，适合在主力机场维护或断线时临时使用。
