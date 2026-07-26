@@ -164,27 +164,91 @@ const displayDate = (value?: string | Date) => {
 	.article-content :global(table) {
 		display: block;
 		width: 100%;
-		margin: 28px 0;
+		margin: 34px 0;
 		border-spacing: 0;
-		border: 1px solid #dce4ee;
-		border-radius: 10px;
+		border: 1px solid #d8e2ed;
+		border-radius: 14px;
+		background: #fff;
+		box-shadow:
+			0 1px 2px rgba(7, 21, 43, 0.04),
+			0 14px 36px rgba(7, 21, 43, 0.07);
 		overflow-x: auto;
+		scrollbar-width: thin;
+		scrollbar-color: #aab9ca #edf2f7;
 	}
 
 	.article-content :global(th),
 	.article-content :global(td) {
-		min-width: 130px;
-		padding: 13px 15px;
-		border-bottom: 1px solid #e7edf4;
+		min-width: 138px;
+		padding: 15px 17px;
+		border-right: 1px solid #e4ebf3;
+		border-bottom: 1px solid #e4ebf3;
 		text-align: left;
 		font-size: 14px;
-		line-height: 1.55;
+		line-height: 1.6;
+		vertical-align: top;
 	}
 
 	.article-content :global(th) {
-		background: #f3f7fb;
+		background: linear-gradient(135deg, #0b2547, #123a65);
+		color: #fff;
+		font-size: 12px;
+		font-weight: 800;
+		letter-spacing: 0.035em;
+		white-space: nowrap;
+	}
+
+	.article-content :global(th:first-child) {
+		border-top-left-radius: 13px;
+	}
+
+	.article-content :global(th:last-child) {
+		border-top-right-radius: 13px;
+	}
+
+	.article-content :global(th:last-child),
+	.article-content :global(td:last-child) {
+		border-right: 0;
+	}
+
+	.article-content :global(tbody tr:nth-child(even) td) {
+		background: #f7f9fc;
+	}
+
+	.article-content :global(tbody tr:hover td) {
+		background: #edf9f7;
+	}
+
+	.article-content :global(tbody tr:hover td:first-child) {
+		box-shadow: inset 3px 0 #46d9c5;
+	}
+
+	.article-content :global(tbody tr:last-child td) {
+		border-bottom: 0;
+	}
+
+	.article-content :global(td:first-child) {
 		color: #102a4c;
 		font-weight: 700;
+	}
+
+	.article-content :global(table a) {
+		display: inline-flex;
+		align-items: center;
+		padding: 4px 9px;
+		border-radius: 999px;
+		background: rgba(21, 94, 239, 0.09);
+		color: #155eef;
+		font-size: 13px;
+		font-weight: 750;
+		line-height: 1.45;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.article-content :global(table a:hover) {
+		background: #155eef;
+		color: #fff;
 	}
 
 	.article-content :global(code) {
@@ -237,6 +301,28 @@ const displayDate = (value?: string | Date) => {
 		.article-aside {
 			position: static;
 			order: -1;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.article-content :global(table) {
+			margin: 26px 0;
+			border-radius: 11px;
+		}
+
+		.article-content :global(th),
+		.article-content :global(td) {
+			min-width: 122px;
+			padding: 12px 13px;
+			font-size: 13px;
+		}
+
+		.article-content :global(th:first-child) {
+			border-top-left-radius: 10px;
+		}
+
+		.article-content :global(th:last-child) {
+			border-top-right-radius: 10px;
 		}
 	}
 </style>
