@@ -4,10 +4,15 @@
  */
 export default {
 	async fetch(request, env) {
+		const requestUrl = new URL(request.url);
+		if (requestUrl.pathname === '/jichang-tuijian' || requestUrl.pathname === '/jichang-tuijian/') {
+			return Response.redirect(new URL('/posts/jichang-tuijian/', requestUrl), 301);
+		}
+
 		const response = await env.ASSETS.fetch(request);
 		if (response.status !== 404 || request.method !== 'GET') return response;
 
-		const url = new URL(request.url);
+		const url = requestUrl;
 		const lastSegment = url.pathname.split('/').at(-1);
 		if (url.pathname.endsWith('/')) {
 			url.pathname += 'index.html';
