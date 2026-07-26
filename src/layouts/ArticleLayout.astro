@@ -33,18 +33,23 @@ const displayDate = (value?: string | Date) => {
 				</div>
 			</div>
 		</header>
-		<div class="article-shell">
-			<article class="article-content">
-				<slot />
-			</article>
+			<div class="article-shell">
+				<article class="article-content">
+					<slot />
+				</article>
 			<aside class="article-aside">
 				<p class="aside-label">阅读提示</p>
 				<p>服务价格、功能和可用性会持续变化。购买或订阅前，请查看官方信息并先做短周期测试。</p>
 				<a href="/risk-monitor/">查看风险监测 →</a>
-			</aside>
-		</div>
-	</main>
-</BaseLayout>
+				</aside>
+			</div>
+		</main>
+		<dialog class="image-lightbox" aria-label="图片大图预览">
+			<button class="lightbox-close" type="button" aria-label="关闭大图预览">×</button>
+			<img class="lightbox-image" src="" alt="" />
+			<p class="lightbox-caption"></p>
+		</dialog>
+	</BaseLayout>
 
 <style>
 	.article-hero {
@@ -299,9 +304,102 @@ const displayDate = (value?: string | Date) => {
 	}
 
 	.article-content :global(img) {
-		margin: 26px auto;
-		border-radius: 12px;
+		display: inline-block;
+		width: min(100%, 260px);
+		height: 180px;
+		margin: 10px 8px 10px 0;
+		padding: 7px;
 		border: 1px solid #dce4ee;
+		border-radius: 12px;
+		background: #f7f9fc;
+		box-shadow: 0 8px 22px rgba(7, 21, 43, 0.08);
+		object-fit: contain;
+		vertical-align: middle;
+		cursor: zoom-in;
+		transition:
+			border-color 0.2s ease,
+			box-shadow 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.article-content :global(img:hover) {
+		border-color: #9eb4ce;
+		box-shadow: 0 12px 28px rgba(7, 21, 43, 0.13);
+		transform: translateY(-2px);
+	}
+
+	.article-content :global(img:focus-visible) {
+		outline: 3px solid rgba(21, 94, 239, 0.45);
+		outline-offset: 3px;
+	}
+
+	.image-lightbox {
+		width: 100vw;
+		max-width: none;
+		height: 100vh;
+		max-height: none;
+		margin: 0;
+		padding: 54px 24px 28px;
+		border: 0;
+		background: rgba(3, 12, 28, 0.94);
+		color: #fff;
+	}
+
+	.image-lightbox[open] {
+		display: grid;
+		grid-template-rows: minmax(0, 1fr) auto;
+		place-items: center;
+		gap: 14px;
+	}
+
+	.image-lightbox::backdrop {
+		background: rgba(3, 12, 28, 0.84);
+		backdrop-filter: blur(8px);
+	}
+
+	.lightbox-image {
+		max-width: min(94vw, 1400px);
+		max-height: calc(100vh - 120px);
+		border-radius: 12px;
+		box-shadow: 0 26px 80px rgba(0, 0, 0, 0.48);
+		object-fit: contain;
+	}
+
+	.lightbox-caption {
+		max-width: min(90vw, 900px);
+		margin: 0;
+		color: rgba(255, 255, 255, 0.72);
+		font-size: 13px;
+		line-height: 1.5;
+		text-align: center;
+	}
+
+	.lightbox-close {
+		position: fixed;
+		top: 16px;
+		right: 18px;
+		display: grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		padding: 0;
+		border: 1px solid rgba(255, 255, 255, 0.28);
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.12);
+		color: #fff;
+		font: inherit;
+		font-size: 28px;
+		line-height: 1;
+		cursor: pointer;
+	}
+
+	.lightbox-close:hover {
+		background: rgba(255, 255, 255, 0.22);
+	}
+
+	.lightbox-close:focus-visible {
+		outline: 3px solid #46d9c5;
+		outline-offset: 3px;
 	}
 
 	.article-aside {
@@ -367,3 +465,44 @@ const displayDate = (value?: string | Date) => {
 		}
 	}
 </style>
+
+<script>
+	const lightbox = document.querySelector<HTMLDialogElement>('.image-lightbox');
+	const lightboxImage = lightbox?.querySelector<HTMLImageElement>('.lightbox-image');
+	const lightboxCaption = lightbox?.querySelector<HTMLElement>('.lightbox-caption');
+	const closeButton = lightbox?.querySelector<HTMLButtonElement>('.lightbox-close');
+	let activeThumbnail: HTMLImageElement | null = null;
+
+	const closeLightbox = () => {
+		lightbox?.close();
+		activeThumbnail?.focus();
+	};
+
+	const openLightbox = (thumbnail: HTMLImageElement) => {
+		if (!lightbox || !lightboxImage || !lightboxCaption) return;
+
+		activeThumbnail = thumbnail;
+		lightboxImage.src = thumbnail.currentSrc || thumbnail.src;
+		lightboxImage.alt = thumbnail.alt;
+		lightboxCaption.textContent = thumbnail.alt;
+		lightbox.showModal();
+	};
+
+	document.querySelectorAll<HTMLImageElement>('.article-content img').forEach((thumbnail) => {
+		thumbnail.tabIndex = 0;
+		thumbnail.setAttribute('role', 'button');
+		thumbnail.setAttribute('aria-label', `点击放大：${thumbnail.alt || '文章图片'}`);
+		thumbnail.title = '点击查看大图';
+		thumbnail.addEventListener('click', () => openLightbox(thumbnail));
+		thumbnail.addEventListener('keydown', (event) => {
+			if (event.key !== 'Enter' && event.key !== ' ') return;
+			event.preventDefault();
+			openLightbox(thumbnail);
+		});
+	});
+
+	closeButton?.addEventListener('click', closeLightbox);
+	lightbox?.addEventListener('click', (event) => {
+		if (event.target === lightbox) closeLightbox();
+	});
+</script>
