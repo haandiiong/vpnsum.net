@@ -22,10 +22,10 @@ tags:
 | 机场 | 推荐定位 | 适合人群 | 详情页 |
 |---|---|---|---|
 | Flybit | Clash、Shadowrocket、多端订阅 | 熟悉通用订阅和代理客户端的人 | [Flybit机场介绍](/airports/flybit/) |
-| xxyun | 流媒体、低价备用 | 预算敏感、主要看 YouTube 和流媒体的人 | [xxyun机场介绍](/airports/xxyun/) |
+| xxyun | 专属客户端、低价备用 | 预算敏感、接受只使用官方客户端的人 | [xxyun机场介绍](/airports/xxyun/) |
 | 网际快车 | 不限时流量、低频使用 | 不想按月续费、能够自行测试客户端的人 | [网际快车机场介绍](/airports/wangji-kuaiche/) |
 | 全球云 | 新手入门、轻中度使用 | 第一次买机场、不想配置 Clash 的用户 | [全球云机场介绍](/airports/quanqiuyun/) |
-| XSUS | 大流量低价、备用线路 | 想用较低成本换较大月流量的人 | [XSUS机场介绍](/airports/xsus/) |
+| XSUS | 大流量、企业专线、备用线路 | 想比较月付、IEPL和不限时包的人 | [XSUS机场介绍](/airports/xsus/) |
 | cocoduck | 小众备用、短期体验 | 想准备备用机场或先试用的人 | [cocoduck机场介绍](/airports/cocoduck/) |
 | 边缘节点 EdgeNode | 流媒体、AI、跨境办公 | 关注 IEPL、流媒体和 AI 工具兼容的人 | [边缘节点机场介绍](/airports/edgenode/) |
 | 阿达西 | 低预算、小流量测试 | 想用3元入门档先核对服务的人 | [阿达西机场介绍](/airports/adaxi/) |

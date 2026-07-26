@@ -3,7 +3,7 @@ title: 全球云机场介绍：新手入门、专属客户端与使用建议
 description: 全球云机场介绍页整理全球云的推荐定位、套餐信息、专属客户端、通用订阅限制、ChatGPT 与 YouTube 使用场景、晚高峰测试重点、购买建议和常见问题，适合第一次选择机场的新手参考。
 permalink: /airports/quanqiuyun/
 createTime: 2026/06/24
-updateTime: 2026/06/24
+updateTime: 2026/07/27
 tags:
   - 全球云
   - 全球云机场
@@ -13,6 +13,7 @@ tags:
 ---
 
 import OfficialLink from '../../../components/OfficialLink.astro';
+import ExpandableDetails from '../../../components/ExpandableDetails.astro';
 
 更新时间：2026年6月24日  
 页面定位：全球云机场单独介绍  
@@ -22,7 +23,7 @@ import OfficialLink from '../../../components/OfficialLink.astro';
 
 全球云更适合第一次购买机场、希望快速上手、主要用于网页访问、YouTube、ChatGPT 和日常资料查询的用户。它的核心优势是专属客户端门槛低，新手不需要先理解复杂规则、订阅转换和策略组。
 
-如果你已经熟悉 Clash、Shadowrocket、Stash、sing-box 等客户端，并且希望深度自定义分流规则，全球云的自由度可能不是最优先项。它更像是一个新手入门和轻中度使用选项。
+如果你已经熟悉 Clash、Shadowrocket、Stash、sing-box 等客户端，并且希望长期自主更新通用订阅，全球云的自由度可能不是最优先项。siilas 资料显示可以联系客服短时提供通用订阅，但这与长期开放的通用订阅不同。
 
 全球云官网入口：
 
@@ -36,12 +37,34 @@ import OfficialLink from '../../../components/OfficialLink.astro';
 | 最低套餐 | 20 元/月 |
 | 月流量 | 120GB |
 | 是否试用 | 否 |
-| 是否不限时 | 否 |
+| 是否不限时 | 是，提供一次性流量包 |
 | 客户端类型 | 专属客户端 |
-| 通用订阅 | 不支持 |
+| 通用订阅 | 需联系客服短时提供 |
 | 适合场景 | 网页访问、YouTube、ChatGPT、日常资料查询 |
 | 测试重点 | 晚高峰连接、视频播放、客户端稳定性 |
 | 购买建议 | 先短周期测试，再决定是否续费 |
+
+<ExpandableDetails title="查看完整套餐与宣传资料" description="包含优惠、不限时包、线路、支付和退款规则">
+
+## siilas宣传页整合
+
+以下内容来自本机 siilas 截至2026年7月18日保存的页面资料。线路、带宽和平台解锁属于页面标注，实际表现仍看本站测试记录。
+
+| 套餐类型 | 代表价格 | 流量 |
+|---|---:|---:|
+| 轻量年付 | 99元/年 | 59GB/月 |
+| BGP入门 | 20元/月 | 120GB/月 |
+| BGP进阶 | 40元/月 | 300GB/月 |
+| BGP高端 | 100元/月 | 700GB/月 |
+| BGP商业 | 180元/月 | 1.5TB/月 |
+| 不限时流量包 | 100–700元/一次性 | 100–800GB |
+| 独享私人专线 | 600元/月 | 500GB/月 |
+
+页面资料记录 BGP、IPLC、IEPL 线路，支付宝与USDT支付，不限制设备；优惠码 `yp7` 为八折且可重复使用，`qq88` 为新注册首次购买八折。技术问题需配合客服排查，不支持无理由退款。
+
+</ExpandableDetails>
+
+<ExpandableDetails title="查看选择建议、优点与测试方法" description="适合准备下单前进一步核对">
 
 ## 选择全球云前先看这些
 
@@ -62,7 +85,7 @@ import OfficialLink from '../../../components/OfficialLink.astro';
 
 ## 全球云的限制
 
-- 不支持通用订阅，喜欢多端自定义规则的用户会受限。
+- 通用订阅需要联系客服短时提供，不适合依赖长期自助订阅的人。
 - 没有试用，第一次下单更适合选择短周期套餐。
 - 机场体验会受地区、运营商、设备和晚高峰负载影响。
 - 单次测速图不能代表长期稳定性。
@@ -76,6 +99,8 @@ import OfficialLink from '../../../components/OfficialLink.astro';
 3. 打开 ChatGPT 连续对话 10-20 分钟。
 4. 播放 YouTube 高清视频，观察是否频繁缓冲。
 5. 记录自己的地区、运营商、设备和时间段。
+
+</ExpandableDetails>
 
 ## 相关页面
 
