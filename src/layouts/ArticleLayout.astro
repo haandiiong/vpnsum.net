@@ -162,7 +162,7 @@ const displayDate = (value?: string | Date) => {
 	}
 
 	.article-content :global(table) {
-		display: block;
+		display: table;
 		width: 100%;
 		margin: 34px 0;
 		border-spacing: 0;
@@ -251,6 +251,46 @@ const displayDate = (value?: string | Date) => {
 		color: #fff;
 	}
 
+	.article-content :global(a[href*="code="]) {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 10px 16px;
+		border: 1px solid #155eef;
+		border-radius: 9px;
+		background: #155eef;
+		box-shadow: 0 8px 20px rgba(21, 94, 239, 0.18);
+		color: #fff;
+		font-size: 14px;
+		font-weight: 800;
+		line-height: 1.2;
+		text-decoration: none;
+		white-space: nowrap;
+		transition:
+			background 0.2s ease,
+			border-color 0.2s ease,
+			box-shadow 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.article-content :global(a[href*="code="]::after) {
+		content: '↗';
+		font-size: 12px;
+	}
+
+	.article-content :global(a[href*="code="]:hover) {
+		border-color: #0b4ed4;
+		background: #0b4ed4;
+		box-shadow: 0 10px 24px rgba(21, 94, 239, 0.26);
+		color: #fff;
+		transform: translateY(-1px);
+	}
+
+	.article-content :global(a[href*="code="]:focus-visible) {
+		outline: 3px solid rgba(70, 217, 197, 0.7);
+		outline-offset: 3px;
+	}
+
 	.article-content :global(code) {
 		padding: 0.18em 0.42em;
 		border-radius: 5px;
@@ -306,6 +346,7 @@ const displayDate = (value?: string | Date) => {
 
 	@media (max-width: 640px) {
 		.article-content :global(table) {
+			display: block;
 			margin: 26px 0;
 			border-radius: 11px;
 		}
