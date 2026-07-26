@@ -9,11 +9,17 @@
     "dev": "astro dev",
     "build": "astro build && node scripts/prepare-sites.mjs && node scripts/audit-build.mjs",
     "audit:site": "node scripts/audit-build.mjs",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.1.4",
     "@astrojs/mdx": "^7.0.3",
     "astro": "^7.1.3"
+  },
+  "devDependencies": {
+    "wrangler": "^4.114.0"
   }
 }
