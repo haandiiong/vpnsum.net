@@ -3,7 +3,7 @@ title: 科学上网教程分类：机场、Clash、客户端与风险检查
 description: 科学上网教程分类按机场推荐、机场介绍、Clash节点、专属客户端、便宜机场、备用机场、风险检查、ChatGPT访问和流媒体测试等场景整理阅读路径，帮助新手从选购到测试建立完整流程。
 permalink: /guides/
 createTime: 2026/06/24
-updateTime: 2026/07/07
+updateTime: 2026/07/27
 tags:
   - 科学上网教程
   - Clash教程
@@ -11,7 +11,7 @@ tags:
   - VPN教程
 ---
 
-更新时间：2026年6月25日  
+更新时间：2026年7月27日  
 页面定位：教程分类与阅读路径  
 适合读者：第一次接触机场、Clash、专属客户端、备用线路和晚高峰测试的新手。
 
@@ -25,16 +25,23 @@ tags:
 | 机场推荐 | 快速理解推荐逻辑、测试口径和时效提醒 | [机场推荐指南](/posts/jichang-tuijian/) |
 | 测试与披露 | 理解测试口径、推广链接和更新规则 | [机场测评方法与商业披露](/posts/jichang-test-disclosure/) |
 | 单项介绍 | 查看某个机场的套餐、客户端和风险提示 | [机场介绍目录](/airports/) |
-| Clash 与订阅 | 理解通用订阅、规则、节点和客户端选择 | [Clash节点推荐与订阅选择指南](/posts/clash-node-recommend/) |
-| 风险检查 | 识别跑路风险、官网异常、售后失联和长期套餐风险 | [机场避坑指南](/posts/jichang-avoid-pitfalls/) |
-| AI 与流媒体测试 | 测试 ChatGPT、YouTube、Netflix 等常用场景 | [机场推荐总榜](/posts/jichang-tuijian/) |
+| 基础概念 | 理解机场、VPN、节点、订阅和客户端 | [翻墙机场是什么](/guides/what-is-proxy-airport/) |
+| Clash 与订阅 | 安装客户端、导入订阅和排查节点 | [Clash Verge Rev教程](/guides/clash-verge-rev/) |
+| iPhone / iPad | 导入订阅、授权VPN和设置分流 | [Shadowrocket教程](/guides/shadowrocket/) |
+| Android | 选择客户端、导入配置和后台保活 | [Android客户端教程](/guides/android-proxy-client/) |
+| Windows | 使用v2rayN导入订阅和系统代理 | [v2rayN教程](/guides/v2rayn/) |
+| 故障排查 | 处理订阅失败、节点全红和DNS问题 | [订阅故障排查](/guides/subscription-troubleshooting/) |
+| 风险检查 | 识别跑路风险、官网异常和异常促销 | [机场跑路预警](/guides/airport-exit-scam-warning/) |
+| AI 测试 | 检查ChatGPT节点地区、IP和稳定性 | [ChatGPT机场指南](/posts/chatgpt-airport-guide/) |
+| 流媒体测试 | 测试YouTube、Netflix和晚高峰播放 | [流媒体机场测试](/posts/streaming-airport-test/) |
 
 ## 新手阅读路径
 
-1. 先读 [机场推荐指南](/posts/jichang-tuijian/)，理解推荐逻辑、时效提醒和测试边界。
-2. 再看 [机场测评方法与商业披露](/posts/jichang-test-disclosure/)，理解页面复核、晚高峰实测和推广链接标注。
-3. 进入 [机场介绍目录](/airports/)，查看每个机场的单独说明。
-4. 下单前最后看 [机场风险监测](/risk-monitor/) 和 [机场避坑指南](/posts/jichang-avoid-pitfalls/)，确认短周期测试和备用方案。
+1. 先读 [翻墙机场是什么](/guides/what-is-proxy-airport/)，弄清机场、VPN、订阅和客户端的区别。
+2. 再看 [机场推荐指南](/posts/jichang-tuijian/)，按预算、客户端和使用场景筛选候选。
+3. 根据设备进入 [Clash Verge Rev](/guides/clash-verge-rev/)、[Shadowrocket](/guides/shadowrocket/)、[Android](/guides/android-proxy-client/) 或 [v2rayN](/guides/v2rayn/) 教程。
+4. 下单前查看 [机场风险监测](/risk-monitor/) 和 [机场跑路预警](/guides/airport-exit-scam-warning/)。
+5. 连接异常时按 [订阅故障排查](/guides/subscription-troubleshooting/) 的顺序定位。
 
 ## 测试流程
 
@@ -58,6 +65,9 @@ tags:
 - [XSUS机场介绍](/airports/xsus/)
 - [Flybit机场介绍](/airports/flybit/)
 - [cocoduck机场介绍](/airports/cocoduck/)
+- [便宜机场：15元以内套餐怎么选](/posts/cheap-airport-under-15/)
+- [不限时机场与按量付费机场](/posts/no-expiry-airport/)
+- [IEPL、IPLC、BGP、中转和直连的区别](/guides/airport-line-types/)
 
 ## 常见问题
 
