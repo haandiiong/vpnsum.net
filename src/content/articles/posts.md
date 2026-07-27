@@ -46,6 +46,12 @@ tags:
 - [Netflix与YouTube流媒体机场怎么测试](/posts/streaming-airport-test/)
 - [IEPL、IPLC、BGP、中转和直连的区别](/guides/airport-line-types/)
 - [机场跑路前有哪些信号？续费与风险检查清单](/guides/airport-exit-scam-warning/)
+- [电信、联通、移动怎么选机场？三网线路测试指南](/guides/isp-airport-selection/)
+- [路由器与OpenWrt代理教程：旁路由、分流和回退检查](/guides/openwrt-router-proxy/)
+- [专属客户端和通用订阅哪个好？机场客户端选择指南](/guides/dedicated-client-vs-subscription/)
+- [主力机场和备用机场怎么搭配？双线路组合指南](/guides/primary-backup-airport/)
+- [机场套餐成本计算器：月均价格、倍率和每GB成本](/tools/airport-plan-cost-calculator/)
+- [机场状态变更记录：套餐、官网、客户端与风险更新](/risk-monitor/status-history/)
 
 ## AI 工具
 

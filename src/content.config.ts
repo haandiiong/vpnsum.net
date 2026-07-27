@@ -13,6 +13,14 @@ const articles = defineCollection({
 		cover: z.string().optional(),
 		noindex: z.boolean().optional(),
 		article: z.boolean().optional(),
+		faq: z.array(z.object({
+			question: z.string(),
+			answer: z.string(),
+		})).optional(),
+		itemList: z.array(z.object({
+			name: z.string(),
+			url: z.string(),
+		})).optional(),
 	}).passthrough(),
 });
 

@@ -28,8 +28,8 @@ for (const file of htmlFiles) {
 }
 
 const normalizeInternalPath = (value) => {
-	const url = new URL(value, 'https://vpnsum.net');
-	if (url.origin !== 'https://vpnsum.net') return undefined;
+	const url = new URL(value, 'https://www.vpnsum.net');
+	if (url.origin !== 'https://www.vpnsum.net') return undefined;
 	let pathname = decodeURIComponent(url.pathname);
 	if (!pathname.endsWith('/') && !path.extname(pathname)) pathname += '/';
 	return pathname;
@@ -41,7 +41,7 @@ for (const file of htmlFiles) {
 
 	if (!/<title>[^<]+<\/title>/.test(html)) errors.push(`${relative}: 缺少页面标题`);
 	if (!/<meta name="description" content="[^"]+"/.test(html)) errors.push(`${relative}: 缺少页面描述`);
-	if (!/<link rel="canonical" href="https:\/\/vpnsum\.net\//.test(html)) errors.push(`${relative}: canonical 地址异常`);
+	if (!/<link rel="canonical" href="https:\/\/www\.vpnsum\.net\//.test(html)) errors.push(`${relative}: canonical 地址异常`);
 
 	for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
 		try {
@@ -68,7 +68,7 @@ if (sitemapUrls.length !== routes.size - 2) {
 }
 
 const robots = await readFile(new URL('robots.txt', outputDirectory), 'utf8');
-if (!robots.includes('Sitemap: https://vpnsum.net/sitemap.xml')) {
+if (!robots.includes('Sitemap: https://www.vpnsum.net/sitemap.xml')) {
 	errors.push('robots.txt: 缺少正式 Sitemap 地址');
 }
 

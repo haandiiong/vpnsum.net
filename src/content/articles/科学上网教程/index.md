@@ -30,6 +30,10 @@ tags:
 | iPhone / iPad | 导入订阅、授权VPN和设置分流 | [Shadowrocket教程](/guides/shadowrocket/) |
 | Android | 选择客户端、导入配置和后台保活 | [Android客户端教程](/guides/android-proxy-client/) |
 | Windows | 使用v2rayN导入订阅和系统代理 | [v2rayN教程](/guides/v2rayn/) |
+| 三网选择 | 比较电信、联通、移动的入口和晚高峰表现 | [三网线路测试](/guides/isp-airport-selection/) |
+| 路由器 | 配置OpenWrt、旁路由、分流和回退 | [OpenWrt路由器教程](/guides/openwrt-router-proxy/) |
+| 客户端选择 | 比较专属客户端与通用订阅 | [客户端选择指南](/guides/dedicated-client-vs-subscription/) |
+| 备用方案 | 组合不同主体、入口和付款方式 | [主力与备用机场](/guides/primary-backup-airport/) |
 | 故障排查 | 处理订阅失败、节点全红和DNS问题 | [订阅故障排查](/guides/subscription-troubleshooting/) |
 | 风险检查 | 识别跑路风险、官网异常和异常促销 | [机场跑路预警](/guides/airport-exit-scam-warning/) |
 | AI 测试 | 检查ChatGPT节点地区、IP和稳定性 | [ChatGPT机场指南](/posts/chatgpt-airport-guide/) |
@@ -68,6 +72,8 @@ tags:
 - [便宜机场：15元以内套餐怎么选](/posts/cheap-airport-under-15/)
 - [不限时机场与按量付费机场](/posts/no-expiry-airport/)
 - [IEPL、IPLC、BGP、中转和直连的区别](/guides/airport-line-types/)
+- [机场套餐成本计算器](/tools/airport-plan-cost-calculator/)
+- [机场状态变更记录](/risk-monitor/status-history/)
 
 ## 常见问题
 

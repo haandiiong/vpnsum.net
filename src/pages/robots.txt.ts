@@ -6,7 +6,7 @@ export function GET() {
 			'User-agent: *',
 			'Allow: /',
 			'',
-			'Sitemap: https://vpnsum.net/sitemap.xml',
+			'Sitemap: https://www.vpnsum.net/sitemap.xml',
 			'',
 		].join('\n'),
 		{

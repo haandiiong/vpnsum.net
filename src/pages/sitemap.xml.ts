@@ -2,7 +2,7 @@ import { getCollection } from 'astro:content';
 
 export const prerender = true;
 
-const siteUrl = 'https://vpnsum.net';
+const siteUrl = 'https://www.vpnsum.net';
 
 const escapeXml = (value: string) =>
 	value

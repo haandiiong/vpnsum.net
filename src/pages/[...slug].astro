@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 }
 
 const { article, relatedArticles } = Astro.props;
-const { Content } = await render(article);
+const { Content, headings } = await render(article);
 ---
 
 <ArticleLayout
@@ -48,6 +48,9 @@ const { Content } = await render(article);
 	noindex={article.data.noindex}
 	cover={article.data.cover}
 	relatedArticles={relatedArticles}
+	headings={headings}
+	faq={article.data.faq}
+	itemList={article.data.itemList}
 >
 	<Content />
 </ArticleLayout>

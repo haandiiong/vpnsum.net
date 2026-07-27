@@ -9,6 +9,27 @@ tags:
   - 机场测评
   - 机场推荐
   - 科学上网
+itemList:
+  - name: Flybit
+    url: /airports/flybit/
+  - name: xxyun
+    url: /airports/xxyun/
+  - name: 网际快车
+    url: /airports/wangji-kuaiche/
+  - name: 全球云
+    url: /airports/quanqiuyun/
+  - name: XSUS
+    url: /airports/xsus/
+  - name: cocoduck
+    url: /airports/cocoduck/
+  - name: 边缘节点 EdgeNode
+    url: /airports/edgenode/
+  - name: 阿达西
+    url: /airports/adaxi/
+  - name: 唯兔云
+    url: /airports/weituyun/
+  - name: U1S1
+    url: /airports/u1s1/
 ---
 
 更新时间：2026年7月27日<br />

@@ -26,7 +26,7 @@ const {
 } = Astro.props;
 
 const pageTitle = title.includes('vpnsum.net') ? title : `${title}｜vpnsum.net`;
-const siteUrl = 'https://vpnsum.net';
+const siteUrl = 'https://www.vpnsum.net';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const imageUrl = new URL(image, siteUrl).toString();
 const siteJsonLd = {

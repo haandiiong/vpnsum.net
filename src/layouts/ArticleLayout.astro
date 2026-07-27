@@ -14,6 +14,19 @@ interface Props {
 		description?: string;
 		permalink: string;
 	}[];
+	headings?: {
+		depth: number;
+		slug: string;
+		text: string;
+	}[];
+	faq?: {
+		question: string;
+		answer: string;
+	}[];
+	itemList?: {
+		name: string;
+		url: string;
+	}[];
 }
 
 const {
@@ -25,6 +38,9 @@ const {
 	noindex = false,
 	cover = '/site-og.jpg',
 	relatedArticles = [],
+	headings = [],
+	faq = [],
+	itemList = [],
 } = Astro.props;
 
 const displayDate = (value?: string | Date) => {
@@ -39,8 +55,19 @@ const isoDate = (value?: string | Date) => {
 	return Number.isNaN(normalized.getTime()) ? undefined : normalized.toISOString();
 };
 
-const siteUrl = 'https://vpnsum.net';
+const siteUrl = 'https://www.vpnsum.net';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const pathSection = Astro.url.pathname.split('/').filter(Boolean)[0] ?? '';
+const sectionMap: Record<string, { name: string; url: string }> = {
+	posts: { name: '文章目录', url: '/posts/' },
+	guides: { name: '使用指南', url: '/guides/' },
+	airports: { name: '机场介绍', url: '/airports/' },
+	global: { name: '全球信息', url: '/posts/' },
+	search: { name: '搜索技巧', url: '/posts/' },
+	tools: { name: '工具资源', url: '/posts/' },
+};
+const section = sectionMap[pathSection];
+const tocHeadings = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
 const publishedTime = isoDate(createTime);
 const modifiedTime = isoDate(updateTime) ?? publishedTime;
 const articleJsonLd = {
@@ -71,10 +98,35 @@ const breadcrumbJsonLd = {
 	'@type': 'BreadcrumbList',
 	itemListElement: [
 		{ '@type': 'ListItem', position: 1, name: '首页', item: `${siteUrl}/` },
-		{ '@type': 'ListItem', position: 2, name: '文章目录', item: `${siteUrl}/posts/` },
-		{ '@type': 'ListItem', position: 3, name: title, item: canonicalUrl },
+		...(section ? [{ '@type': 'ListItem', position: 2, name: section.name, item: new URL(section.url, siteUrl).toString() }] : []),
+		{ '@type': 'ListItem', position: section ? 3 : 2, name: title, item: canonicalUrl },
 	],
 };
+const faqJsonLd = faq.length > 0 ? {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faq.map((entry) => ({
+		'@type': 'Question',
+		name: entry.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: entry.answer,
+		},
+	})),
+} : undefined;
+const itemListJsonLd = itemList.length > 0 ? {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	numberOfItems: itemList.length,
+	itemListElement: itemList.map((entry, index) => ({
+		'@type': 'ListItem',
+		position: index + 1,
+		name: entry.name,
+		url: new URL(entry.url, siteUrl).toString(),
+	})),
+} : undefined;
+const structuredData = [articleJsonLd, breadcrumbJsonLd, faqJsonLd, itemListJsonLd]
+	.filter((entry): entry is Record<string, unknown> => Boolean(entry));
 ---
 
 <BaseLayout
@@ -86,7 +138,7 @@ const breadcrumbJsonLd = {
 	publishedTime={publishedTime}
 	modifiedTime={modifiedTime}
 	tags={tags}
-	jsonLd={[articleJsonLd, breadcrumbJsonLd]}
+	jsonLd={structuredData}
 >
 		<main>
 			<header class="article-hero">
@@ -94,8 +146,8 @@ const breadcrumbJsonLd = {
 					<nav class="breadcrumbs" aria-label="面包屑">
 						<a href="/">首页</a>
 						<span aria-hidden="true">/</span>
-						<a href="/posts/">文章目录</a>
-						<span aria-hidden="true">/</span>
+						{section && <a href={section.url}>{section.name}</a>}
+						{section && <span aria-hidden="true">/</span>}
 						<span aria-current="page">{title}</span>
 					</nav>
 					<h1>{title}</h1>
@@ -132,6 +184,14 @@ const breadcrumbJsonLd = {
 				<aside class="article-aside">
 					<p class="aside-label">阅读提示</p>
 					<p>服务价格、功能和可用性会持续变化。购买或订阅前，请查看官方信息并先做短周期测试。</p>
+					{tocHeadings.length >= 4 && (
+						<nav class="article-toc" aria-label="文章目录">
+							<p class="aside-label">文章目录</p>
+							{tocHeadings.map((heading) => (
+								<a class:list={{ 'toc-subitem': heading.depth === 3 }} href={`#${heading.slug}`}>{heading.text}</a>
+							))}
+						</nav>
+					)}
 					<a href="/risk-monitor/">查看风险监测 →</a>
 					<a href="/posts/jichang-test-disclosure/">了解评测方法 →</a>
 					</aside>
@@ -617,6 +677,39 @@ const breadcrumbJsonLd = {
 			font-size: 13px;
 			font-weight: 700;
 			text-decoration: none;
+		}
+
+		.article-toc {
+			max-height: min(52vh, 430px);
+			margin: 20px 0;
+			padding: 18px 0;
+			border-top: 1px solid #dce4ee;
+			border-bottom: 1px solid #dce4ee;
+			overflow-y: auto;
+			scrollbar-width: thin;
+		}
+
+		.article-toc .aside-label {
+			margin-bottom: 12px !important;
+		}
+
+		.article-toc a {
+			margin-top: 0;
+			padding: 5px 0;
+			color: #475467;
+			font-size: 12px;
+			font-weight: 650;
+			line-height: 1.45;
+		}
+
+		.article-toc a:hover {
+			color: #155eef;
+		}
+
+		.article-toc .toc-subitem {
+			padding-left: 12px;
+			color: #667085;
+			font-weight: 550;
 		}
 
 		.related-section {

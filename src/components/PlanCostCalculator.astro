@@ -1,0 +1,147 @@
+<section class="plan-calculator" aria-labelledby="plan-calculator-title">
+	<div>
+		<p class="calculator-kicker">套餐成本计算器</p>
+		<h2 id="plan-calculator-title">比较真实月均成本</h2>
+		<p>输入付款金额、套餐月数、每月流量和常用节点倍率。结果只用于比较，不代表服务质量。</p>
+	</div>
+	<div class="calculator-grid">
+		<label>付款金额（元）<input data-field="price" type="number" min="0" step="0.01" value="120" /></label>
+		<label>套餐周期（月）<input data-field="months" type="number" min="1" step="1" value="12" /></label>
+		<label>每月标称流量（GB）<input data-field="traffic" type="number" min="0" step="1" value="100" /></label>
+		<label>常用节点倍率<input data-field="multiplier" type="number" min="0.1" step="0.1" value="1" /></label>
+	</div>
+	<div class="calculator-results" aria-live="polite">
+		<div><span>月均付款</span><strong data-result="monthly">¥10.00</strong></div>
+		<div><span>月均等效流量</span><strong data-result="effective">100.00 GB</strong></div>
+		<div><span>每GB成本</span><strong data-result="per-gb">¥0.10</strong></div>
+	</div>
+	<p class="calculator-note">年付中途停运、流量清零、设备限制、加油包和支付手续费未计入；第一次购买仍建议先月付测试。</p>
+</section>
+
+<script>
+	const calculators = document.querySelectorAll<HTMLElement>('.plan-calculator');
+	for (const calculator of calculators) {
+		const read = (field: string) => Number((calculator.querySelector(`[data-field="${field}"]`) as HTMLInputElement)?.value || 0);
+		const write = (result: string, value: string) => {
+			const target = calculator.querySelector(`[data-result="${result}"]`);
+			if (target) target.textContent = value;
+		};
+		const update = () => {
+			const price = read('price');
+			const months = Math.max(1, read('months'));
+			const traffic = read('traffic');
+			const multiplier = Math.max(0.1, read('multiplier'));
+			const monthly = price / months;
+			const effective = traffic / multiplier;
+			const perGb = effective > 0 ? monthly / effective : 0;
+			write('monthly', `¥${monthly.toFixed(2)}`);
+			write('effective', `${effective.toFixed(2)} GB`);
+			write('per-gb', `¥${perGb.toFixed(2)}`);
+		};
+		calculator.addEventListener('input', update);
+		update();
+	}
+</script>
+
+<style>
+	.plan-calculator {
+		margin: 38px 0;
+		padding: clamp(22px, 4vw, 34px);
+		border: 1px solid #cddbe9;
+		border-radius: 18px;
+		background: linear-gradient(145deg, #f7fbff, #effbf8);
+		box-shadow: 0 18px 44px rgba(7, 21, 43, 0.08);
+	}
+
+	.plan-calculator h2 {
+		margin: 4px 0 10px !important;
+		padding: 0 !important;
+		border: 0 !important;
+	}
+
+	.plan-calculator p {
+		margin: 0;
+	}
+
+	.calculator-kicker {
+		color: #155eef !important;
+		font-size: 12px !important;
+		font-weight: 850;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.calculator-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px;
+		margin-top: 24px;
+	}
+
+	.calculator-grid label {
+		color: #344054;
+		font-size: 13px;
+		font-weight: 750;
+	}
+
+	.calculator-grid input {
+		width: 100%;
+		margin-top: 7px;
+		padding: 11px 12px;
+		border: 1px solid #c7d4e2;
+		border-radius: 9px;
+		background: #fff;
+		color: #07152b;
+		font: inherit;
+		box-sizing: border-box;
+	}
+
+	.calculator-grid input:focus {
+		border-color: #155eef;
+		outline: 3px solid rgba(21, 94, 239, 0.14);
+	}
+
+	.calculator-results {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 10px;
+		margin-top: 18px;
+	}
+
+	.calculator-results div {
+		padding: 15px;
+		border: 1px solid #dce4ee;
+		border-radius: 11px;
+		background: #fff;
+	}
+
+	.calculator-results span,
+	.calculator-results strong {
+		display: block;
+	}
+
+	.calculator-results span {
+		color: #667085;
+		font-size: 11px;
+		font-weight: 700;
+	}
+
+	.calculator-results strong {
+		margin-top: 5px;
+		color: #102a4c;
+		font-size: 19px;
+	}
+
+	.calculator-note {
+		margin-top: 16px !important;
+		color: #667085 !important;
+		font-size: 12px !important;
+	}
+
+	@media (max-width: 640px) {
+		.calculator-grid,
+		.calculator-results {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
