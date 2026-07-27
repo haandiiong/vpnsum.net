@@ -14,6 +14,7 @@ const response = await fetch('https://api.indexnow.org/indexnow', {
 	method: 'POST',
 	headers: { 'Content-Type': 'application/json; charset=utf-8' },
 	body: JSON.stringify({ host, key, keyLocation, urlList }),
+	signal: AbortSignal.timeout(30_000),
 });
 
 if (!response.ok) {
