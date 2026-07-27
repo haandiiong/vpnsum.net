@@ -39,7 +39,7 @@ vpnsum.net 是一个面向中文读者的工具与信息获取指南站，主要
 
 ## 联系方式
 
-如需反馈事实错误、链接失效、套餐变化或更新建议，请先查看[更正与反馈政策](/corrections/)。本站将在公开联系方式完成配置后，在该页面统一公布提交入口；在此之前不会使用未经确认的个人联系方式。
+如需反馈事实错误、链接失效、套餐变化或更新建议，请先查看[更正与反馈政策](/corrections/)，然后通过公开的 [GitHub 内容反馈入口](https://github.com/haandiiong/vpnsum.net/issues/new?template=content-correction.yml) 提交。请勿附带订阅地址、访问令牌、账号密码、订单号或付款资料。
 
 ## 相关页面
 

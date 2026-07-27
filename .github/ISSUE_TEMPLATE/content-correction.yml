@@ -1,0 +1,26 @@
+name: 内容更正与链接反馈
+description: 反馈事实错误、套餐变化、失效链接或过期截图
+title: "[内容反馈] "
+body:
+  - type: input
+    id: page
+    attributes:
+      label: 页面地址
+      description: 请填写需要更正的 vpnsum.net 页面完整地址。
+      placeholder: https://www.vpnsum.net/...
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: 问题说明
+      description: 请指出具体段落、表格行、图片或失效链接。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 可复核材料
+      description: 可提供官方页面、公告或已遮挡隐私的截图日期。请勿提交订阅地址、密码、令牌、订单号或付款资料。
+    validations:
+      required: false
