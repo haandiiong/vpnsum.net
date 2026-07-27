@@ -14,7 +14,15 @@ const articleEntries = allArticles
 	.filter(({ data }) => !['/posts/', '/airports/', '/guides/', '/about/', '/disclaimer/'].includes(data.permalink))
 	.sort((a, b) => toTimestamp(b.data.updateTime ?? b.data.createTime) - toTimestamp(a.data.updateTime ?? a.data.createTime));
 
-const latestArticles = articleEntries.slice(0, 6);
+const networkTags = new Set(['机场推荐', '机场介绍', '机场测评', '机场风险监测', '机场避坑', 'Clash教程', 'Clash节点推荐', '科学上网', 'VPN']);
+const networkArticles = articleEntries.filter(({ data }) =>
+	data.permalink.startsWith('/airports/')
+	|| data.permalink.startsWith('/guides/')
+	|| data.permalink.startsWith('/risk-monitor/')
+	|| data.permalink === '/evidence/'
+	|| (data.tags ?? []).some((tag) => networkTags.has(tag))
+);
+const latestArticles = networkArticles.slice(0, 6);
 
 const categories = [
 	{
@@ -25,32 +33,33 @@ const categories = [
 			count: '10 家候选',
 	},
 	{
-		kicker: 'GUIDES',
-		title: '网络使用指南',
-		description: '从订阅选择到晚高峰测试，为新手提供可执行的检查步骤。',
+		kicker: 'CLIENT GUIDES',
+		title: '客户端与使用教程',
+		description: '从订阅导入、客户端选择到连接故障，提供可执行的操作步骤。',
 		href: '/guides/',
-		count: '5 篇指南',
+		count: '持续更新',
 	},
 	{
-		kicker: 'AI TOOLS',
-		title: 'AI 工具',
-		description: '对比 ChatGPT、DeepSeek、豆包与 Codex 的实际使用场景。',
-		href: '/posts/ai-tools-ranking-2026/',
-		count: '5 篇评测',
+		kicker: 'EVIDENCE',
+		title: '测试与证据中心',
+		description: '区分页面截图、历史资料和原创实测，公开每家候选尚缺的证据。',
+		href: '/evidence/',
+		count: '10 家档案',
 	},
 	{
-		kicker: 'GLOBAL',
-		title: '全球信息获取',
-		description: '学习使用 Google、YouTube、GitHub 与国际官方信息源。',
-		href: '/global/how-to-access-global-information/',
-		count: '8 篇方法',
+		kicker: 'RISK MONITOR',
+		title: '机场风险监测',
+		description: '跟踪入口、套餐、客户端和资料变化，续费前快速检查风险信号。',
+		href: '/risk-monitor/',
+		count: '持续复核',
 	},
 ];
 
 const categoryLabel = (permalink: string) => {
 	if (permalink.startsWith('/airports/')) return '机场介绍';
-	if (permalink.startsWith('/global/') || permalink.startsWith('/search/') || permalink.startsWith('/tools/')) return '信息获取';
-	if (permalink === '/risk-monitor/') return '风险监测';
+	if (permalink.startsWith('/guides/')) return '客户端教程';
+	if (permalink.startsWith('/risk-monitor/')) return '风险监测';
+	if (permalink === '/evidence/') return '证据中心';
 	return '实用指南';
 };
 ---
@@ -59,15 +68,15 @@ const categoryLabel = (permalink: string) => {
 	<main>
 		<section class="hero">
 			<div class="hero-copy">
-				<div class="eyebrow"><span></span> VPN · AI · GLOBAL INFORMATION</div>
+				<div class="eyebrow"><span></span> VPN · AIRPORT GUIDES · EVIDENCE</div>
 				<h1>看清选择，<br /><em>再连接世界。</em></h1>
 				<p>
-					vpnsum.net 提供机场推荐、Clash 使用指南、AI 工具评测与全球信息检索方法。
-					我们把复杂信息整理成可比较、可验证的决策参考。
+					vpnsum.net 提供机场推荐、Clash 与客户端教程、风险监测和证据核对。
+					我们区分页面宣传、历史资料与可重复测试，把复杂信息整理成可比较的决策参考。
 				</p>
 				<div class="hero-actions">
 					<a class="primary-button" href="/posts/jichang-tuijian/">查看机场推荐 <span>→</span></a>
-					<a class="text-button" href="/posts/">浏览全部文章</a>
+					<a class="text-button" href="/evidence/">查看证据中心</a>
 				</div>
 			</div>
 			<div class="signal-card" aria-label="内容更新状态">

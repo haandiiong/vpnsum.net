@@ -14,8 +14,8 @@ interface Props {
 }
 
 const {
-	title = 'vpnsum.net｜VPN、机场推荐与全球信息指南',
-	description = '提供 VPN、机场推荐、Clash 节点、AI 工具与全球信息获取指南。',
+	title = 'vpnsum.net｜VPN机场推荐、客户端教程与风险监测',
+	description = '提供 VPN 机场推荐、Clash 节点与客户端教程、测试证据说明和机场风险监测。',
 	noindex = false,
 	type = 'website',
 	image = '/site-og.jpg',
@@ -37,7 +37,7 @@ const siteJsonLd = {
 			'@id': `${siteUrl}/#website`,
 			url: `${siteUrl}/`,
 			name: 'vpnsum.net',
-			description: '面向中文读者的机场推荐、客户端教程、风险监测与全球信息获取指南。',
+			description: '面向中文读者的 VPN 机场推荐、客户端教程、测试证据说明与风险监测。',
 			inLanguage: 'zh-CN',
 			publisher: { '@id': `${siteUrl}/#organization` },
 		},
@@ -94,7 +94,7 @@ const siteJsonLd = {
 			<nav class="site-nav" aria-label="主要导航">
 				<a href="/posts/jichang-tuijian/">机场推荐</a>
 				<a href="/guides/">使用指南</a>
-				<a href="/posts/">全部文章</a>
+				<a href="/evidence/">证据中心</a>
 				<a class="nav-primary" href="/risk-monitor/">风险监测</a>
 			</nav>
 		</header>
@@ -102,13 +102,14 @@ const siteJsonLd = {
 		<footer class="site-footer">
 			<div>
 				<p class="footer-brand">vpnsum.net</p>
-				<p>独立的信息筛选、工具评测与网络使用指南。<br />重要选择请结合官方信息与自己的实际测试。</p>
+				<p>机场信息筛选、客户端教程、测试证据与风险监测。<br />重要选择请结合官方信息与自己的实际测试。</p>
 			</div>
 				<div class="footer-links">
 					<a href="/about/">关于本站</a>
 					<a href="/editorial-policy/">编辑政策</a>
 					<a href="/corrections/">更正反馈</a>
 					<a href="/posts/jichang-test-disclosure/">评测与披露</a>
+					<a href="/evidence/">证据中心</a>
 				</div>
 		</footer>
 	</body>

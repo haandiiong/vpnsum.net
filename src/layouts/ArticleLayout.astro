@@ -65,6 +65,7 @@ const sectionMap: Record<string, { name: string; url: string }> = {
 	global: { name: '全球信息', url: '/posts/' },
 	search: { name: '搜索技巧', url: '/posts/' },
 	tools: { name: '工具资源', url: '/posts/' },
+	evidence: { name: '风险监测', url: '/risk-monitor/' },
 };
 const section = sectionMap[pathSection];
 const tocHeadings = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
@@ -193,6 +194,7 @@ const structuredData = [articleJsonLd, breadcrumbJsonLd, faqJsonLd, itemListJson
 						</nav>
 					)}
 					<a href="/risk-monitor/">查看风险监测 →</a>
+					<a href="/evidence/">查看证据中心 →</a>
 					<a href="/posts/jichang-test-disclosure/">了解评测方法 →</a>
 					</aside>
 			</div>
