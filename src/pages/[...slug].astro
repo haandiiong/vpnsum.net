@@ -7,13 +7,20 @@ export async function getStaticPaths() {
 
 	return articles.map((article) => {
 		const articleTags = new Set(article.data.tags ?? []);
+		const clientGuides = ['/guides/clash-verge-rev/', '/guides/shadowrocket/', '/guides/android-proxy-client/', '/guides/v2rayn/', '/guides/openwrt-router-proxy/'];
+		const preferredRelated = clientGuides.includes(article.data.permalink)
+			? ['/guides/subscription-troubleshooting/', '/guides/dedicated-client-vs-subscription/', '/guides/what-is-proxy-airport/']
+			: article.data.permalink === '/guides/subscription-troubleshooting/'
+				? ['/guides/clash-verge-rev/', '/guides/shadowrocket/', '/guides/v2rayn/']
+				: [];
 		const articleSection = article.data.permalink.split('/').filter(Boolean)[0] ?? '';
 		const relatedArticles = articles
 			.filter((candidate) => candidate.id !== article.id && !candidate.data.noindex)
 			.map((candidate) => {
 				const sharedTags = (candidate.data.tags ?? []).filter((tag) => articleTags.has(tag)).length;
 				const candidateSection = candidate.data.permalink.split('/').filter(Boolean)[0] ?? '';
-				const score = sharedTags * 3 + (candidateSection === articleSection ? 1 : 0);
+				const preferredIndex = preferredRelated.indexOf(candidate.data.permalink);
+				const score = preferredIndex >= 0 ? 100 - preferredIndex : sharedTags * 3 + (candidateSection === articleSection ? 1 : 0);
 				return {
 					title: candidate.data.title,
 					description: candidate.data.description,

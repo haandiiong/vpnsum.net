@@ -14,45 +14,13 @@ const articleEntries = allArticles
 	.filter(({ data }) => !['/posts/', '/airports/', '/guides/', '/about/', '/disclaimer/'].includes(data.permalink))
 	.sort((a, b) => toTimestamp(b.data.updateTime ?? b.data.createTime) - toTimestamp(a.data.updateTime ?? a.data.createTime));
 
-const networkTags = new Set(['机场推荐', '机场介绍', '机场测评', '机场风险监测', '机场避坑', 'Clash教程', 'Clash节点推荐', '科学上网', 'VPN']);
-const networkArticles = articleEntries.filter(({ data }) =>
-	data.permalink.startsWith('/airports/')
-	|| data.permalink.startsWith('/guides/')
-	|| data.permalink.startsWith('/risk-monitor/')
-	|| data.permalink === '/evidence/'
-	|| (data.tags ?? []).some((tag) => networkTags.has(tag))
-);
-const latestArticles = networkArticles.slice(0, 6);
-
+const guideArticles = articleEntries.filter(({ data }) => data.permalink.startsWith('/guides/') && !data.noindex);
+const latestArticles = guideArticles.slice(0, 6);
 const categories = [
-	{
-		kicker: 'RECOMMENDATION',
-		title: '机场推荐',
-			description: '按证据等级整理 10 家机场候选，比较价格、客户端、使用场景与待核对项目。',
-		href: '/posts/jichang-tuijian/',
-			count: '10 家候选',
-	},
-	{
-		kicker: 'CLIENT GUIDES',
-		title: '客户端与使用教程',
-		description: '从订阅导入、客户端选择到连接故障，提供可执行的操作步骤。',
-		href: '/guides/',
-		count: '持续更新',
-	},
-	{
-		kicker: 'EVIDENCE',
-		title: '测试与证据中心',
-		description: '区分页面截图、历史资料和原创实测，公开每家候选尚缺的证据。',
-		href: '/evidence/',
-		count: '10 家档案',
-	},
-	{
-		kicker: 'RISK MONITOR',
-		title: '机场风险监测',
-		description: '跟踪入口、套餐、客户端和资料变化，续费前快速检查风险信号。',
-		href: '/risk-monitor/',
-		count: '持续复核',
-	},
+ { kicker: 'CHOOSE A CLIENT', title: '选择客户端', description: '从设备和订阅类型出发，找到适合自己的客户端与操作教程。', href: '/guides/', count: '按设备选择' },
+ { kicker: 'IMPORT SUBSCRIPTION', title: '安装与导入订阅', description: '从官方下载到配置导入，按步骤完成第一次连接。', href: '/guides/clash-verge-rev/', count: '从这里开始' },
+ { kicker: 'TROUBLESHOOTING', title: '连接故障排查', description: '订阅更新失败、节点全红、部分应用无法联网，按症状逐步定位。', href: '/guides/subscription-troubleshooting/', count: '按症状定位' },
+ { kicker: 'CHECK YOUR CONNECTION', title: '验证连接效果', description: '检查播放、连接与晚高峰表现，了解一次测速能说明什么。', href: '/posts/streaming-airport-test/', count: '实际场景检查' },
 ];
 
 const categoryLabel = (permalink: string) => {
@@ -68,15 +36,15 @@ const categoryLabel = (permalink: string) => {
 	<main>
 		<section class="hero">
 			<div class="hero-copy">
-				<div class="eyebrow"><span></span> VPN · AIRPORT GUIDES · EVIDENCE</div>
-				<h1>看清选择，<br /><em>再连接世界。</em></h1>
+				<div class="eyebrow"><span></span> CLIENT GUIDES · CONNECTION · TROUBLESHOOTING</div>
+				<h1>客户端教程，<br /><em>连接故障排查。</em></h1>
 				<p>
-					vpnsum.net 提供机场推荐、Clash 与客户端教程、风险监测和证据核对。
-					我们区分页面宣传、历史资料与可重复测试，把复杂信息整理成可比较的决策参考。
+					按设备选择 Clash、Shadowrocket 等客户端，完成订阅导入与连接验证。
+					遇到更新失败、节点超时或应用无法联网时，从具体症状开始，逐步定位问题。
 				</p>
 				<div class="hero-actions">
-					<a class="primary-button" href="/posts/jichang-tuijian/">查看机场推荐 <span>→</span></a>
-					<a class="text-button" href="/evidence/">查看证据中心</a>
+					<a class="primary-button" href="/guides/">选择设备与客户端 <span>→</span></a>
+					<a class="text-button" href="/guides/subscription-troubleshooting/">排查连接故障</a>
 				</div>
 			</div>
 			<div class="signal-card" aria-label="内容更新状态">
@@ -92,18 +60,18 @@ const categoryLabel = (permalink: string) => {
 					<div class="pulse three"></div>
 				</div>
 				<div class="signal-stats">
-					<div><strong>{allArticles.length}</strong><span>篇内容</span></div>
-					<div><strong>10</strong><span>机场候选</span></div>
-					<div><strong>4</strong><span>核心栏目</span></div>
+					<div><strong>{guideArticles.length}</strong><span>篇使用指南</span></div>
+					<div><strong>4</strong><span>使用入口</span></div>
+					<div><strong>7</strong><span>排查步骤</span></div>
 				</div>
 			</div>
 		</section>
 
 		<section class="trust-strip" aria-label="内容原则">
-			<span>场景化建议</span>
-			<span>短周期测试</span>
-			<span>风险状态跟踪</span>
-			<span>重要信息核验</span>
+			<span>按设备选择</span>
+			<span>按步骤配置</span>
+			<span>按症状排查</span>
+			<span>连接结果验证</span>
 		</section>
 
 		<section class="category-section">
@@ -135,8 +103,8 @@ const categoryLabel = (permalink: string) => {
 					<span class="section-number light">02</span>
 					<p>最近更新</p>
 				</div>
-				<h2>保持信息新鲜，<br />也保留必要怀疑。</h2>
-				<a href="/posts/">查看文章目录 →</a>
+				<h2>从安装配置，<br />到解决连接问题。</h2>
+				<a href="/guides/">查看全部使用指南 →</a>
 			</div>
 			<div class="article-list">
 				{latestArticles.map((article, index) => (
@@ -154,11 +122,11 @@ const categoryLabel = (permalink: string) => {
 
 		<section class="risk-callout">
 			<div>
-				<span class="risk-label">BEFORE YOU BUY</span>
-				<h2>先看风险，再做决定。</h2>
-				<p>机场服务随时可能变化。续费、长周期购买或迁移主力线路前，先检查近期状态和风险信号。</p>
+				<span class="risk-label">AIRPORT REFERENCE</span>
+				<h2>需要核对机场资料？</h2>
+				<p>查看服务的客户端兼容、订阅限制与资料来源；选购前再核对套餐和风险记录。</p>
 			</div>
-			<a href="/risk-monitor/">打开风险监测 <span>→</span></a>
+			<a href="/airports/">查看机场资料 <span>→</span></a>
 		</section>
 	</main>
 </BaseLayout>

@@ -14,8 +14,8 @@ interface Props {
 }
 
 const {
-	title = 'vpnsum.net｜VPN机场推荐、客户端教程与风险监测',
-	description = '2026 VPN机场推荐与Clash节点指南，提供客户端教程、测试证据说明、套餐选择方法和机场风险监测。',
+	title = 'Clash与机场客户端教程｜订阅导入、连接故障排查｜vpnsum.net',
+	description = '按设备选择 Clash、Shadowrocket、v2rayN 等客户端，学习订阅导入、连接验证和故障排查，并查阅机场兼容性与风险资料。',
 	noindex = false,
 	type = 'website',
 	image = '/site-og.jpg',
@@ -37,7 +37,7 @@ const siteJsonLd = {
 			'@id': `${siteUrl}/#website`,
 			url: `${siteUrl}/`,
 			name: 'vpnsum.net',
-			description: '面向中文读者的 VPN 机场推荐、客户端教程、测试证据说明与风险监测。',
+			description: '面向中文读者的客户端使用教程、订阅配置与连接故障排查指南。',
 			inLanguage: 'zh-CN',
 			publisher: { '@id': `${siteUrl}/#organization` },
 		},
@@ -92,27 +92,27 @@ const siteJsonLd = {
 				<span>vpnsum.net</span>
 			</a>
 			<nav class="site-nav" aria-label="主要导航">
-				<a href="/posts/jichang-tuijian/">机场推荐</a>
-				<a href="/guides/">使用指南</a>
-				<a href="/evidence/">证据中心</a>
-				<a class="nav-primary" href="/risk-monitor/">风险监测</a>
+				<a href="/guides/">客户端教程</a>
+				<a href="/guides/subscription-troubleshooting/">故障排查</a>
+				<a href="/guides/what-is-proxy-airport/">基础知识</a>
+				<a class="nav-primary" href="/airports/">机场资料</a>
 			</nav>
 			<details class="mobile-nav">
 				<summary aria-label="打开网站导航">菜单</summary>
 				<nav aria-label="移动端导航">
-					<a href="/posts/jichang-tuijian/">机场推荐</a>
-					<a href="/guides/">使用指南</a>
-					<a href="/evidence/">证据中心</a>
-					<a href="/risk-monitor/">风险监测</a>
-					<a href="/posts/">全部文章</a>
-				</nav>
+                        <a href="/guides/">客户端教程</a>
+                        <a href="/guides/subscription-troubleshooting/">故障排查</a>
+                        <a href="/guides/what-is-proxy-airport/">基础知识</a>
+                        <a href="/airports/">机场资料</a>
+                        <a href="/posts/">全部文章</a>
+                    </nav>
 			</details>
 		</header>
 		<slot />
 		<footer class="site-footer">
 			<div>
 				<p class="footer-brand">vpnsum.net</p>
-				<p>机场信息筛选、客户端教程、测试证据与风险监测。<br />重要选择请结合官方信息与自己的实际测试。</p>
+				<p>客户端使用教程、订阅配置与连接故障排查。<br />从设备和具体问题出发，找到下一步操作。</p>
 			</div>
 				<div class="footer-links">
 					<a href="/about/">关于本站</a>
@@ -121,6 +121,7 @@ const siteJsonLd = {
 					<a href="https://github.com/haandiiong/vpnsum.net/issues/new?template=content-correction.yml">提交反馈</a>
 					<a href="/posts/jichang-test-disclosure/">评测与披露</a>
 					<a href="/evidence/">证据中心</a>
+					<a href="/risk-monitor/">风险记录</a>
 				</div>
 		</footer>
 	</body>
