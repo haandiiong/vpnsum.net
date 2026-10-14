@@ -17,9 +17,9 @@ const articleEntries = allArticles
 const guideArticles = articleEntries.filter(({ data }) => data.permalink.startsWith('/guides/') && !data.noindex);
 const latestArticles = guideArticles.slice(0, 6);
 const categories = [
- { kicker: 'CHOOSE A CLIENT', title: '选择客户端', description: '从设备和订阅类型出发，找到适合自己的客户端与操作教程。', href: '/guides/', count: '按设备选择' },
- { kicker: 'IMPORT SUBSCRIPTION', title: '安装与导入订阅', description: '从官方下载到配置导入，按步骤完成第一次连接。', href: '/guides/clash-verge-rev/', count: '从这里开始' },
- { kicker: 'TROUBLESHOOTING', title: '连接故障排查', description: '订阅更新失败、节点全红、部分应用无法联网，按症状逐步定位。', href: '/guides/subscription-troubleshooting/', count: '按症状定位' },
+ { kicker: 'CHOOSE A CLIENT', title: '选择客户端', description: '区分Clash/Mihomo与sing-box配置，按设备选择对应的客户端。', href: '/guides/#先核对订阅格式', count: '设备与格式' },
+ { kicker: 'IMPORT SUBSCRIPTION', title: '安装与导入订阅', description: '核对官方安装包、导入订阅，检查节点、代理模式与实际访问。', href: '/guides/clash-verge-rev/', count: '从这里开始' },
+ { kicker: 'TROUBLESHOOTING', title: '连接故障排查', description: '从401、403、配置解析失败或节点超时开始，找到检查与恢复步骤。', href: '/guides/subscription-troubleshooting/#先按症状选择入口', count: '按错误提示' },
  { kicker: 'CHECK YOUR CONNECTION', title: '验证连接效果', description: '检查播放、连接与晚高峰表现，了解一次测速能说明什么。', href: '/posts/streaming-airport-test/', count: '实际场景检查' },
 ];
 
@@ -39,8 +39,8 @@ const categoryLabel = (permalink: string) => {
 				<div class="eyebrow"><span></span> CLIENT GUIDES · CONNECTION · TROUBLESHOOTING</div>
 				<h1>客户端教程，<br /><em>连接故障排查。</em></h1>
 				<p>
-					按设备选择 Clash、Shadowrocket 等客户端，完成订阅导入与连接验证。
-					遇到更新失败、节点超时或应用无法联网时，从具体症状开始，逐步定位问题。
+					先核对订阅格式，再按设备选择客户端，完成配置导入与连接验证。
+					遇到更新失败、节点超时或应用无法联网时，从错误提示开始，找到检查位置与恢复方法。
 				</p>
 				<div class="hero-actions">
 					<a class="primary-button" href="/guides/">选择设备与客户端 <span>→</span></a>
@@ -113,6 +113,7 @@ const categoryLabel = (permalink: string) => {
 						<div>
 							<span class="row-category">{categoryLabel(article.data.permalink)}</span>
 							<h3>{article.data.title}</h3>
+							{article.data.description && <p class="row-summary">{article.data.description}</p>}
 						</div>
 						<span class="row-arrow">→</span>
 					</a>
@@ -165,7 +166,7 @@ const categoryLabel = (permalink: string) => {
 	h1 {
 		max-width: 780px;
 		margin: 25px 0 28px;
-		font-size: clamp(58px, 8vw, 112px);
+		font-size: clamp(48px, 6vw, 88px);
 		line-height: 0.99;
 		letter-spacing: -0.07em;
 	}
@@ -487,6 +488,14 @@ const categoryLabel = (permalink: string) => {
 		letter-spacing: -0.02em;
 	}
 
+	.row-summary {
+		max-width: 760px;
+		margin: 9px 0 0;
+		color: rgba(255, 255, 255, 0.65);
+		font-size: 13px;
+		line-height: 1.7;
+	}
+
 	.row-arrow {
 		color: #46d9c5;
 		font-size: 20px;
@@ -556,7 +565,7 @@ const categoryLabel = (permalink: string) => {
 		}
 
 		h1 {
-			font-size: clamp(52px, 17vw, 82px);
+			font-size: clamp(44px, 12vw, 76px);
 		}
 
 		.hero-actions {
